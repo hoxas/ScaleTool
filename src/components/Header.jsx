@@ -1,0 +1,96 @@
+import * as lib from '../lib/scaleslib.js'; /* import not working why? */
+import React from 'react';
+
+export default (props) => {
+    /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
+
+    const [tone, setTone] = React.useState(0);
+    const [scale, setScale] = React.useState(0);
+    const [instrument, setInstrument] = React.useState(0);
+    const [tuning, setTuning] = React.useState(0);
+
+    function Bttn (props) {
+        /* button type tone */
+        if (props.format == "tone") {
+            let tone = parseInt(props.children);
+
+            return (
+                <button onClick={() => setTone(tone)}>{lib.tones[tone]}</button>
+            )
+        } else if (props.format == "scale") {
+            let scale = parseInt(props.children);
+
+            return (
+                <button onClick={() => setScale(scale)}>{lib.scales[scale][0]}</button>
+            )
+        } else if (props.format == "instrument") {
+            let instrument = parseInt(props.children);
+
+            return (
+                <button onClick={() => setInstrument(instrument)}>{lib.instruments[instrument][0]}</button>
+            )
+        } else if (props.format == "tuning") {
+            let tuning = parseInt(props.children);
+
+            return (
+                <button onClick={() => setTuning(tuning)}>{lib.tuning[tuning][0]}</button>
+            )
+        }
+
+
+    }
+
+    return (
+        <div className="header">
+            <div className="drpdwn">
+                <button className="drpbtn">Tone: {lib.tones[tone]}</button>
+                <div className="drpcontent">
+                    <Bttn format="tone">0</Bttn>
+                    <Bttn format="tone">1</Bttn>
+                    <Bttn format="tone">2</Bttn>
+                    <Bttn format="tone">3</Bttn>
+                    <Bttn format="tone">4</Bttn>
+                    <Bttn format="tone">5</Bttn>
+                    <Bttn format="tone">6</Bttn>
+                    <Bttn format="tone">7</Bttn>
+                    <Bttn format="tone">8</Bttn>
+                    <Bttn format="tone">9</Bttn>
+                    <Bttn format="tone">10</Bttn>
+                    <Bttn format="tone">11</Bttn>
+                </div>
+            </div>
+            <div className="drpdwn">
+                <button className="drpbtn">Scale: {lib.scales[scale][0]}</button>
+                <div className="drpcontent">
+                    <Bttn format="scale">0</Bttn>
+                    <Bttn format="scale">1</Bttn>
+                    <Bttn format="scale">2</Bttn>
+                    <Bttn format="scale">3</Bttn>
+                </div>
+            </div>
+            <div className="drpdwn">
+                <button className="drpbtn">Instrument: {lib.instruments[instrument][0]}</button>
+                <div className="drpcontent">
+                    <Bttn format="instrument">0</Bttn>
+                    <Bttn format="instrument">1</Bttn>
+                </div>
+            </div>
+            <div className="drpdwn">
+                <button className="drpbtn">Tuning: {lib.tuning[tuning][0]}</button>
+                <div className="drpcontent">
+                    <Bttn format="tuning">0</Bttn>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
+
+    /* function ConstBttn (props) {
+        function build (index) { return <Bttn type={props.format}>{index}</Bttn>}            
+
+        if (props.format == "tone")
+        
+        return lib.tones.forEach(build())    
+    } */
