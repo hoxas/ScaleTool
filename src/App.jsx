@@ -1,11 +1,9 @@
 import React from 'react'
 
-import Header from './components/Header.jsx'
-import ScaleDisplayer from './components/ScaleDisplayer.jsx'
+import Main from './components/Main.jsx'
 
 export default props => (
     <div className="App">
-        <Header />
-        <ScaleDisplayer />
+        <Main />
     </div>
 );

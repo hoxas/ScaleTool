@@ -1,13 +1,18 @@
-import * as lib from '../lib/scaleslib.js'; /* import not working why? */
+import './style/Header.css'
+import * as lib from '../lib/scaleslib.js';
 import React from 'react';
 
 export default (props) => {
     /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
 
-    const [tone, setTone] = React.useState(0);
-    const [scale, setScale] = React.useState(0);
-    const [instrument, setInstrument] = React.useState(0);
-    const [tuning, setTuning] = React.useState(0);
+    const tone = props.tone;
+    const setTone = props.setTone;
+    const scale = props.scale;
+    const setScale = props.setScale;
+    const instrument = props.instrument;
+    const setInstrument = props.setInstrument;
+    const tuning = props.tuning;
+    const setTuning = props.setTuning;
 
     function Bttn (props) {
         /* button type tone */
@@ -43,7 +48,7 @@ export default (props) => {
     return (
         <div className="header">
             <div className="drpdwn">
-                <button className="drpbtn">Tone: {lib.tones[tone]}</button>
+                <button className="drpbtn">Tone: {lib.tones[props.tone]}</button>
                 <div className="drpcontent">
                     <Bttn format="tone">0</Bttn>
                     <Bttn format="tone">1</Bttn>
@@ -60,7 +65,7 @@ export default (props) => {
                 </div>
             </div>
             <div className="drpdwn">
-                <button className="drpbtn">Scale: {lib.scales[scale][0]}</button>
+                <button className="drpbtn">Scale: {lib.scales[props.scale][0]}</button>
                 <div className="drpcontent">
                     <Bttn format="scale">0</Bttn>
                     <Bttn format="scale">1</Bttn>
@@ -69,14 +74,14 @@ export default (props) => {
                 </div>
             </div>
             <div className="drpdwn">
-                <button className="drpbtn">Instrument: {lib.instruments[instrument][0]}</button>
+                <button className="drpbtn">Instrument: {lib.instruments[props.instrument][0]}</button>
                 <div className="drpcontent">
                     <Bttn format="instrument">0</Bttn>
                     <Bttn format="instrument">1</Bttn>
                 </div>
             </div>
             <div className="drpdwn">
-                <button className="drpbtn">Tuning: {lib.tuning[tuning][0]}</button>
+                <button className="drpbtn">Tuning: {lib.tuning[props.tuning][0]}</button>
                 <div className="drpcontent">
                     <Bttn format="tuning">0</Bttn>
                 </div>

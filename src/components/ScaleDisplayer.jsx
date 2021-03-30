@@ -1,3 +1,4 @@
+import * as lib from '../lib/scaleslib.js'
 import React from "react";
 
 export default (props) => (
