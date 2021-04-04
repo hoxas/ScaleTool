@@ -15,8 +15,8 @@ export const tones = [
 ];
 
 // scaleslib
-export const W = 2;
-export const H = 1;
+const W = 2;
+const H = 1;
 
 const major = [
     "Major",
@@ -83,7 +83,8 @@ export const tuning = [stndrd]
 
 // instruments
 
-let guitar = ['Guitar'];
-let bass = ['Bass'];
+let guitar = ['Guitar', 6];
+let bass = ['Bass', 4];
+let bass5 = ['5-String Bass', 5]
 
-export const instruments = [guitar, bass]
+export const instruments = [guitar, bass, bass5]

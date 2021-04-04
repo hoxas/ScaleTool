@@ -17,9 +17,7 @@ export default (props) => {
     function Bttn (props) {
         /* button type tone */
         if (props.format == "tones") {
-            console.log('start bttn')
             let tone = parseInt(props.children);
-            console.log(tone)
 
             return (
                 <button onClick={() => setTone(tone)}>{lib.tones[tone]}</button>

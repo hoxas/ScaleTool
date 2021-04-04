@@ -7,21 +7,52 @@ export default (props) => {
     const instrument = props.instrument;
     const tuning = props.tuning;
 
-    function buildFretboard (scale, tone) {
+    function buildFretboard () {
         let builtFret = new Array();
+        let i;
+        let instStrings =  lib.instruments[instrument][1];
+        
+        instStrings >= 6 ? i = 0 : i = -(instStrings - 6); 
 
-        /* if (instrument == 0) {
-            lib.tuning[1].map((value) => { 
-                for (let i = 0; i <= 24; i) {
+        for (let strings = 0; strings < instStrings; strings++) {
+            builtFret.push([]);
+            let tone0 = lib.tuning[tuning][1][i];
 
-                }
-            })
-        } */
+            for (let fret = 0; fret < 25; fret++) {
+                tone0 %= 12;
+                builtFret[strings].push(tone0)
+                tone0++;
+            }
+            i++;
+        }
+        
+
+        return builtFret;
     }
+
+    let builtFret = buildFretboard();
+    console.log(builtFret)
+
+    let fretCount = [...Array(25).keys()];
 
     return (
         <div className="fretboard">
-            <h1>fretboard here</h1>
+            <table>
+                <thead>
+                    <tr>
+                        {fretCount.map((value) => <td key={value}>{value}</td>)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {builtFret.map((value, index) => (
+                        <tr key={index}> 
+                            {builtFret[index].map((value, index) => (
+                                <td key={index}>{lib.tones[value]}</td>
+                            ))}
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 };
