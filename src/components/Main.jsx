@@ -2,6 +2,7 @@ import React from 'react'
 
 import Header from './Header.jsx'
 import ScaleDisplayer from './ScaleDisplayer.jsx'
+import Fretboard from './Fretboard.jsx'
 
 export default props => {
     /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
@@ -26,6 +27,11 @@ export default props => {
                 tuning={tuning} 
                 setTuning={setTuning} />
             <ScaleDisplayer 
+                tone={tone} 
+                scale={scale} 
+                instrument={instrument} 
+                tuning={tuning} />
+            <Fretboard 
                 tone={tone} 
                 scale={scale} 
                 instrument={instrument} 

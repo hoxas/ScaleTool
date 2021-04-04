@@ -14,16 +14,10 @@ export default (props) => {
         let tone0 = tone;
 
         for (let i = 0; i < lib.scales[scale][1].length; i++) {
-            if (tone <= 11) {
-                buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
-                //console.log(tones[tone], tone)
-                tone = tone + lib.scales[scale][1][i];
-            } else if (tone > 11) {
-                tone = tone - 12;
-                buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
-                //console.log(tones[tone], tone)
-                tone = tone + lib.scales[scale][1][i];
-            }
+            tone %= 12;
+            buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
+            //console.log(tones[tone], tone)
+            tone = tone + lib.scales[scale][1][i];
         }
 
         // scale output
