@@ -22,53 +22,53 @@ const major = [
     "Major",
     [W, W, H, W, W, W, H],
     [
-        "1st Major",
-        "2nd Minor",
-        "3rd Minor",
-        "4th Major",
-        "5th Major",
-        "6th Minor",
-        "7th ø",
+        "I Major",
+        "II Minor",
+        "III Minor",
+        "IV Major",
+        "V Major",
+        "VI Minor",
+        "VII ø",
     ],
 ];
 const bebopdom = [
     "Bebop Dominant",
     [W, W, H, W, W, H, H, H],
     [
-        "1st Major",
-        "2nd Minor",
-        "3rd Minor",
-        "4th Major",
-        "5th Major",
-        "6th Minor",
-        "7♭th Major",
-        "7th ø",
+        "I Major",
+        "II Minor",
+        "III Minor",
+        "IV Major",
+        "V Major",
+        "VI Minor",
+        "VII♭ Major",
+        "VII ø",
     ]
 ];
 const minor = [
     "Natural Minor",
     [W, H, W, W, H, W, W],
     [
-        "1st Minor",
-        "2nd ø",
-        "3rd Major",
-        "4th Minor",
-        "5th Minor",
-        "6th Major",
-        "7th Major",
+        "I Minor",
+        "II ø",
+        "III Major",
+        "IV Minor",
+        "V Minor",
+        "VI Major",
+        "VII Major",
     ]
 ];
 const harmonicminor = [
     "Harmonic Minor",
     [W, H, W, W, H, W + H, W],
     [
-        "1st Minor",
-        "2nd ° or ø",
-        "3rd Augmented",
-        "4th Minor",
-        "5th Major",
-        "6th Major",
-        "7th ° or ø",
+        "I Minor",
+        "II ° or ø",
+        "III Augmented",
+        "IV Minor",
+        "V Major",
+        "VI Major",
+        "VII ° or ø",
     ]
 ];
 

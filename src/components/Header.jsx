@@ -16,19 +16,21 @@ export default (props) => {
 
     function Bttn (props) {
         /* button type tone */
-        if (props.format == "tone") {
+        if (props.format == "tones") {
+            console.log('start bttn')
             let tone = parseInt(props.children);
+            console.log(tone)
 
             return (
                 <button onClick={() => setTone(tone)}>{lib.tones[tone]}</button>
             )
-        } else if (props.format == "scale") {
+        } else if (props.format == "scales") {
             let scale = parseInt(props.children);
 
             return (
                 <button onClick={() => setScale(scale)}>{lib.scales[scale][0]}</button>
             )
-        } else if (props.format == "instrument") {
+        } else if (props.format == "instruments") {
             let instrument = parseInt(props.children);
 
             return (
@@ -41,61 +43,57 @@ export default (props) => {
                 <button onClick={() => setTuning(tuning)}>{lib.tuning[tuning][0]}</button>
             )
         }
-
-
+    }
+    
+    function BuildBttn (props) {
+        if (props.format == "tones") {
+            return (
+                <div className="drpdwn">
+                    <button className="drpbtn">Tone: {lib.tones[tone]}</button>
+                    <div className="drpcontent">
+                        {lib.tones.map((value, index) => <Bttn key={index} format={props.format}>{index}</Bttn>)}
+                    </div>
+                </div>
+            )
+        } else if (props.format == "scales") {
+            return (
+                <div className="drpdwn">
+                    <button className="drpbtn">Scale: {lib.scales[scale][0]}</button>
+                    <div className="drpcontent">
+                        {lib.scales.map((value, index) => <Bttn key={index} format={props.format}>{index}</Bttn>)}
+                    </div>
+                </div>
+            )
+        } else if (props.format == "instruments") {
+            return (
+                <div className="drpdwn">
+                    <button className="drpbtn">Instrument: {lib.instruments[instrument][0]}</button>
+                    <div className="drpcontent">
+                        {lib.instruments.map((value, index) => <Bttn key={index} format={props.format}>{index}</Bttn>)}
+                    </div>
+                </div>
+            )
+        } else if (props.format == "tuning") {
+            return (
+                <div className="drpdwn">
+                    <button className="drpbtn">Tuning: {lib.tuning[tuning][0]}</button>
+                    <div className="drpcontent">
+                        {lib.tuning.map((value, index) => <Bttn key={index} format={props.format}>{index}</Bttn>)}
+                    </div>
+                </div>
+            )
+        }
     }
 
     return (
         <div className="header">
-            <div className="drpdwn">
-                <button className="drpbtn">Tone: {lib.tones[props.tone]}</button>
-                <div className="drpcontent">
-                    <Bttn format="tone">0</Bttn>
-                    <Bttn format="tone">1</Bttn>
-                    <Bttn format="tone">2</Bttn>
-                    <Bttn format="tone">3</Bttn>
-                    <Bttn format="tone">4</Bttn>
-                    <Bttn format="tone">5</Bttn>
-                    <Bttn format="tone">6</Bttn>
-                    <Bttn format="tone">7</Bttn>
-                    <Bttn format="tone">8</Bttn>
-                    <Bttn format="tone">9</Bttn>
-                    <Bttn format="tone">10</Bttn>
-                    <Bttn format="tone">11</Bttn>
-                </div>
-            </div>
-            <div className="drpdwn">
-                <button className="drpbtn">Scale: {lib.scales[props.scale][0]}</button>
-                <div className="drpcontent">
-                    <Bttn format="scale">0</Bttn>
-                    <Bttn format="scale">1</Bttn>
-                    <Bttn format="scale">2</Bttn>
-                    <Bttn format="scale">3</Bttn>
-                </div>
-            </div>
-            <div className="drpdwn">
-                <button className="drpbtn">Instrument: {lib.instruments[props.instrument][0]}</button>
-                <div className="drpcontent">
-                    <Bttn format="instrument">0</Bttn>
-                    <Bttn format="instrument">1</Bttn>
-                </div>
-            </div>
-            <div className="drpdwn">
-                <button className="drpbtn">Tuning: {lib.tuning[props.tuning][0]}</button>
-                <div className="drpcontent">
-                    <Bttn format="tuning">0</Bttn>
-                </div>
-            </div>
+            <BuildBttn format="tones"></BuildBttn>
+            <BuildBttn format="scales"></BuildBttn>
+            <BuildBttn format="instruments"></BuildBttn>
+            <BuildBttn format="tuning"></BuildBttn>
         </div>
     );
 };
 
 
 
-    /* function ConstBttn (props) {
-        function build (index) { return <Bttn type={props.format}>{index}</Bttn>}            
-
-        if (props.format == "tone")
-        
-        return lib.tones.forEach(build())    
-    } */
