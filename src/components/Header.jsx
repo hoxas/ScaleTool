@@ -85,6 +85,7 @@ export default (props) => {
 
     return (
         <div className="header">
+            <div className="logo">Hello Logo</div>
             <BuildBttn format="tones"></BuildBttn>
             <BuildBttn format="scales"></BuildBttn>
             <BuildBttn format="instruments"></BuildBttn>

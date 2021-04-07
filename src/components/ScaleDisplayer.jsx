@@ -1,3 +1,4 @@
+import './style/ScaleDisplayer.css'
 import * as lib from '../lib/scaleslib.js'
 import React from "react";
 
