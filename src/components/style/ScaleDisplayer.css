@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  color: #832a2a;
+}
+
+ul {
+  width: 100%;
+}
+
+ul li {
+  width: 10%;
+  display: inline-block;
+}

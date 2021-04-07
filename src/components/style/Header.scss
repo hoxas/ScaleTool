@@ -1,3 +1,16 @@
+.header {
+  width: 100%;
+  background: #4CAF50;
+}
+
+/* .drpdwn {
+  width: 100%;
+}
+.drpbtn, .logo {
+  width: 100%
+} */
+
+
 .drpdwn {
   position: relative;
   display: inline-block;
@@ -19,6 +32,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  width: 100%;
 }
 
 .drpcontent button {
@@ -40,4 +54,11 @@
 
 .drpdwn:hover .drpbtn {
   background-color: #3e8e41;
+}
+
+.logo {
+  display: inline-block;
+  background: rgb(95, 18, 18);
+  width: 5%;
+  margin: 0;
 }
