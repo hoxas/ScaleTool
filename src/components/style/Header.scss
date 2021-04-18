@@ -77,10 +77,6 @@ $coolgray: #53565a;
     background: $babyblue;
 }
 
-.nav .dropdown .dropcontent {
-    display: none;
-}
-
 .contact {
     width: 100%;
     position: absolute;
@@ -106,4 +102,44 @@ $coolgray: #53565a;
     color: $coolgray;
     display: flex;
     line-height: 68px;
+}
+
+/* animations */
+
+.menu-primary-enter {
+    position: absolute;
+    transform: translateX(-110%);
+}
+
+.menu-primary-enter-active {
+    transform: translateX(0%);
+    transition: all 500ms ease;
+}
+
+.menu-primary-exit {
+    position: absolute;
+}
+
+.menu-primary-exit-active {
+    transform: translateX(-110%);
+    transition: all 500ms ease;
+}
+
+.menu-secondary-enter {
+    position: absolute;
+    transform: translateX(110%);
+}
+
+.menu-secondary-enter-active {
+    transform: translateX(0%);
+    transition: all 500ms ease;
+}
+
+.menu-secondary-exit {
+    position: absolute;
+}
+
+.menu-secondary-exit-active {
+    transform: translateX(110%);
+    transition: all 500ms ease;
 }

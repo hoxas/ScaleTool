@@ -1,5 +1,11 @@
-.fretboard {
+$black: #050707;
+$babyblue: #ecf1f2;
+$white: #f3f5f9;
+$yellow: #f4d800;
+$coolgray: #53565a;
 
+.fretboard {
+    background: $babyblue;
 }
 
 .fretNumber {
