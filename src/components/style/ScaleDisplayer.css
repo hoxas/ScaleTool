@@ -1,13 +1,65 @@
-h1 {
-  text-align: center;
-  color: #832a2a;
+.scaleDisplayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-ul {
+.scaleName {
   width: 100%;
+  height: 60px;
+  background: #050707;
+  display: flex;
+  justify-content: center;
 }
 
-ul li {
-  width: 10%;
+.scaleName h1 {
+  padding: 10px 0;
+  color: #ecf1f2;
+}
+
+.tones {
+  width: 100%;
+  position: relative;
+  border-top: 5px solid #2c2e2f;
+  border-bottom: 5px solid #2c2e2f;
+}
+
+.tones::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border-top: 2px solid #424649;
+  border-bottom: 2px solid #424649;
+}
+
+.tones ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tones ul li {
+  list-style: none;
+  position: relative;
   display: inline-block;
+  text-align: center;
+  flex: 1;
+  padding: 5px 0;
+  border-left: 1px solid #2c2e2f;
+  border-right: 1px solid #2c2e2f;
+}
+
+.tones ul li::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border-right: 2px solid #424649;
+  border-left: 2px solid #424649;
 }

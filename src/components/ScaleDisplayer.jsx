@@ -11,7 +11,7 @@ export default (props) => {
     // scaleMachine
     function buildScale (scale, tone) {
         // Init array and save first tone pos.
-        let buildScale = new Array();
+        let buildScale = [];
         let tone0 = tone;
 
         for (let i = 0; i < lib.scales[scale][1].length; i++) {
@@ -34,13 +34,18 @@ export default (props) => {
 
     return (
         <div className="scaleDisplayer">
-            <h1>{builtScale[0]}</h1>
-            <ul>
-                {builtScale[1].map((value, index) => <li key={index}>{value[1]}</li>)}
-            </ul>
-            <ul>
-                {builtScale[1].map((value, index) => <li key={index}>{value[0]}</li>)}
-            </ul>
+            <div className="scaleName">
+                <h1>{builtScale[0]}</h1>
+            </div>
+            
+            <div className="tones">
+                <ul>
+                    {builtScale[1].map((value, index) => <li key={index}>{value[1]}</li>)}
+                </ul>
+                <ul>
+                    {builtScale[1].map((value, index) => <li key={index}>{value[0]}</li>)}
+                </ul>
+            </div>
         </div>
     )
 };

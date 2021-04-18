@@ -1,3 +1,4 @@
+import './style/Fretboard.css'
 import * as lib from '../lib/scaleslib.js'
 import React from "react";
 
@@ -8,7 +9,7 @@ export default (props) => {
     const tuning = props.tuning;
 
     function buildFretboard () {
-        let builtFret = new Array();
+        let builtFret = [];
         let i;
         let instStrings =  lib.instruments[instrument][1];
         
@@ -35,24 +36,20 @@ export default (props) => {
 
     let fretCount = [...Array(25).keys()];
 
+    console.log(fretCount)
+
     return (
         <div className="fretboard">
-            <table>
-                <thead>
-                    <tr>
-                        {fretCount.map((value) => <td key={value}>{value}</td>)}
-                    </tr>
-                </thead>
-                <tbody>
-                    {builtFret.map((value, index) => (
-                        <tr key={index}> 
-                            {builtFret[index].map((value, index) => (
-                                <td key={index}>{lib.tones[value]}</td>
-                            ))}
-                        </tr>
+            <ul className="fretNumber">
+                {fretCount.map((value) => <li key={value}>{value}</li>)}
+            </ul>
+            {builtFret.map((value, index) => (
+                <ul key={index} className={index}> 
+                    {builtFret[index].map((value, index) => (
+                        <li key={index}>{lib.tones[value]}</li>
                     ))}
-                </tbody>
-            </table>
+                </ul>
+            ))}
         </div>
     )
 };

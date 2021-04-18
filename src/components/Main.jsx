@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './style/Main.css'
+
 import Header from './Header.jsx'
 import ScaleDisplayer from './ScaleDisplayer.jsx'
 import Fretboard from './Fretboard.jsx'
@@ -26,16 +28,18 @@ export default props => {
                 setInstrument={setInstrument} 
                 tuning={tuning} 
                 setTuning={setTuning} />
-            <ScaleDisplayer 
-                tone={tone} 
-                scale={scale} 
-                instrument={instrument} 
-                tuning={tuning} />
-            <Fretboard 
-                tone={tone} 
-                scale={scale} 
-                instrument={instrument} 
-                tuning={tuning} />
+            <div class="content">
+                <ScaleDisplayer 
+                    tone={tone} 
+                    scale={scale} 
+                    instrument={instrument} 
+                    tuning={tuning} />
+                <Fretboard 
+                    tone={tone} 
+                    scale={scale} 
+                    instrument={instrument} 
+                    tuning={tuning} />
+            </div>
         </div>
 
     )
