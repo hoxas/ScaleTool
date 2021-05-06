@@ -11,11 +11,15 @@ export default props => {
 
     const [tone, setTone] = React.useState(parseInt(localStorage.getItem('tone')) || 0);
     const [scale, setScale] = React.useState(parseInt(localStorage.getItem('scale')) || 0);
-    const [instrument, setInstrument] = React.useState(0);
-    const [tuning, setTuning] = React.useState(0);
+    const [instrument, setInstrument] = React.useState(parseInt(localStorage.getItem('instrument')) || 0);
+    const [tuning, setTuning] = React.useState(parseInt(localStorage.getItem('tuning')) || 0);
+    const [lefty, setLefty] = React.useState(localStorage.getItem('lefty') === 'true' || false);
 
     localStorage.setItem('tone', tone);
     localStorage.setItem('scale', scale);
+    localStorage.setItem('instrument', instrument);
+    localStorage.setItem('tuning', tuning);
+    localStorage.setItem('lefty', lefty);
 
     return (
         <div className="Main">
@@ -27,8 +31,10 @@ export default props => {
                 instrument={instrument} 
                 setInstrument={setInstrument} 
                 tuning={tuning} 
-                setTuning={setTuning} />
-            <div class="content">
+                setTuning={setTuning}
+                lefty={lefty}
+                setLefty={setLefty} />
+            <div className="content">
                 <ScaleDisplayer 
                     tone={tone} 
                     scale={scale} 
@@ -38,7 +44,8 @@ export default props => {
                     tone={tone} 
                     scale={scale} 
                     instrument={instrument} 
-                    tuning={tuning} />
+                    tuning={tuning}
+                    lefty={lefty} />
             </div>
         </div>
 

@@ -1,3 +1,28 @@
+.fretboard {
+  border: 1px solid #050707;
+}
+
+.fretboard .strings {
+  background: #050707;
+  border-top: 1px solid #050707;
+  border-bottom: 1px solid #050707;
+  padding: 10px;
+  color: #f3f5f9;
+}
+
+.fretboard .strings ul {
+  border: 1px solid #f3f5f9;
+}
+
+.fretboard .strings ul li {
+  border-right: 1px solid #f3f5f9;
+}
+
+.fretNumber {
+  padding: 10px;
+  background: #f3f5f9;
+}
+
 ul {
   display: flex;
   /* flex-direction: row-reverse; */
@@ -8,4 +33,8 @@ ul li {
   list-style: none;
   display: inline-block;
   flex: 1;
+}
+
+.fretboard.reverse ul {
+  flex-direction: row-reverse;
 }

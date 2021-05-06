@@ -18,6 +18,7 @@ $coolgray: #53565a;
 .nav:hover,
 .nav.active {
     width: 300px;
+    overflow-y: auto;
 }
 
 .nav .logo {
@@ -36,6 +37,12 @@ $coolgray: #53565a;
     line-height: 60px;
 }
 
+.menu {
+    /* height: calc(100vh - 60px); */
+    display: flex;
+    flex-direction: column;
+}
+
 .nav button {
     border: none;
     width: 100%;
@@ -52,6 +59,10 @@ $coolgray: #53565a;
     line-height: 60px;
     text-align: center;
     font-size: 24px;
+}
+
+.nav .icon.reverse {
+    transform: scaleX(-1);
 }
 
 .nav .icon.text {
@@ -75,16 +86,11 @@ $coolgray: #53565a;
 
 .nav button:hover {
     background: $babyblue;
-}
-
-.nav .dropdown .dropcontent {
-    display: none;
+    cursor: pointer;
 }
 
 .contact {
     width: 100%;
-    position: absolute;
-    bottom: 0;
 }
 
 .contact a {
@@ -106,4 +112,54 @@ $coolgray: #53565a;
     color: $coolgray;
     display: flex;
     line-height: 68px;
+}
+
+/* animations */
+
+.menu-primary-enter {
+    position: absolute;
+    /* transform: translateX(-110%); */
+    opacity: 0;
+    width: 300px;
+}
+
+.menu-primary-enter-active {
+    /* transform: translateX(0%); */
+    opacity: 1;
+    transition: all 250ms ease;
+}
+
+.menu-primary-exit {
+    position: absolute;
+    width: 300px;
+}
+
+.menu-primary-exit-active {
+    /* transform: translateX(-110%); */
+    opacity: 0;
+    transition: all 250ms ease;
+}
+
+.menu-secondary-enter {
+    position: absolute;
+    /* transform: translateX(110%); */
+    opacity: 0;
+    width: 300px;
+}
+
+.menu-secondary-enter-active {
+    /* transform: translateX(0%); */
+    opacity: 1;
+    transition: all 250ms ease;
+}
+
+.menu-secondary-exit {
+    position: absolute;
+}
+
+.menu-secondary-exit-active {
+    /* transform: translateX(110%); */
+    opacity: 0;
+    transition: all 250ms ease;
+    
 }

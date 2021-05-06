@@ -7,6 +7,7 @@ export default (props) => {
     const scale = props.scale;
     const instrument = props.instrument;
     const tuning = props.tuning;
+    const lefty = props.lefty;
 
     function buildFretboard () {
         let builtFret = [];
@@ -32,24 +33,27 @@ export default (props) => {
     }
 
     let builtFret = buildFretboard();
-    console.log(builtFret)
+    /* console.log(builtFret) */
 
     let fretCount = [...Array(25).keys()];
 
-    console.log(fretCount)
+    /* console.log(fretCount) */
+    
 
     return (
-        <div className="fretboard">
+        <div className={`fretboard ${lefty ? 'reverse' : ''}`}>
             <ul className="fretNumber">
                 {fretCount.map((value) => <li key={value}>{value}</li>)}
             </ul>
-            {builtFret.map((value, index) => (
-                <ul key={index} className={index}> 
-                    {builtFret[index].map((value, index) => (
-                        <li key={index}>{lib.tones[value]}</li>
-                    ))}
-                </ul>
-            ))}
+            <div className="strings">
+                {builtFret.map((value, index) => (
+                    <ul key={index} className={index}> 
+                        {builtFret[index].map((value, index) => (
+                            <li key={index}>{lib.tones[value]}</li>
+                        ))}
+                    </ul>
+                ))}
+            </div>
         </div>
     )
 };

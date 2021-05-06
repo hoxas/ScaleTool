@@ -39,10 +39,10 @@ export default (props) => {
             </div>
             
             <div className="tones">
-                <ul>
+                <ul className="degree">
                     {builtScale[1].map((value, index) => <li key={index}>{value[1]}</li>)}
                 </ul>
-                <ul>
+                <ul className="note">
                     {builtScale[1].map((value, index) => <li key={index}>{value[0]}</li>)}
                 </ul>
             </div>
