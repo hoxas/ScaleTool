@@ -28,7 +28,7 @@ const major = [
         "IV Major",
         "V Major",
         "VI Minor",
-        "VII ø",
+        "VII ø"
     ],
 ];
 const bebopdom = [
@@ -42,7 +42,7 @@ const bebopdom = [
         "V Major",
         "VI Minor",
         "VII♭ Major",
-        "VII ø",
+        "VII ø"
     ]
 ];
 const minor = [
@@ -55,7 +55,7 @@ const minor = [
         "IV Minor",
         "V Minor",
         "VI Major",
-        "VII Major",
+        "VII Major"
     ]
 ];
 const harmonicminor = [
@@ -68,7 +68,7 @@ const harmonicminor = [
         "IV Minor",
         "V Major",
         "VI Major",
-        "VII ° or ø",
+        "VII ° or ø"
     ]
 ];
 
@@ -78,8 +78,9 @@ export const scales = [major, bebopdom, minor, harmonicminor];
 
 // stndrd tuning
 const stndrd = ['Standard', [4, 11, 7, 2, 9, 4]];
+const dropd = ['Drop D', [4, 11, 7, 2, 9, 2]]
 
-export const tuning = [stndrd]
+export const tuning = [stndrd, dropd]
 
 // instruments
 

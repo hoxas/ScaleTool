@@ -5,10 +5,28 @@ $yellow: #f4d800;
 $coolgray: #53565a;
 
 .fretboard {
-    background: $babyblue;
+    border: 1px solid $black;
+}
+
+.fretboard .strings {
+    background: $black;
+    border-top: 1px solid $black;
+    border-bottom: 1px solid $black;
+    padding: 10px;
+    color: $white;
+}
+
+.fretboard .strings ul {
+    border: 1px solid $white;
+}
+
+.fretboard .strings ul li {
+    border-right: 1px solid $white;
 }
 
 .fretNumber {
+    padding: 10px;
+    background: $white;
     
 }
 
@@ -23,4 +41,8 @@ ul {
         display: inline-block;
         flex: 1;
     }
+}
+
+.fretboard.reverse ul {
+    flex-direction: row-reverse;
 }

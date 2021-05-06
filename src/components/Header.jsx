@@ -2,7 +2,7 @@ import * as lib from '../lib/scaleslib.js';
 import React from 'react';
 import './style/Header.css';
 
-import { FaGuitar, FaCog, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGuitar, FaCog, FaGithub, FaLinkedin, FaHandPaper } from 'react-icons/fa';
 import { GiMusicalScore } from 'react-icons/gi';
 import { VscRepoForked } from 'react-icons/vsc';
 import { BsMusicNoteBeamed, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
@@ -21,6 +21,8 @@ export default (props) => {
     const setInstrument = props.setInstrument;
     const tuning = props.tuning;
     const setTuning = props.setTuning;
+    const lefty = props.lefty;
+    const setLefty = props.setLefty;
 
     const [activeMenu, setActiveMenu] = React.useState('main');
 
@@ -30,25 +32,45 @@ export default (props) => {
             let tone = parseInt(props.children);
 
             return (
-                <button onClick={() => setTone(tone)}>{lib.tones[tone]}</button>
+                <button 
+                onClick={() => setTone(tone)}
+                className="dropbtn">
+                    <span className="icon text">{lib.tones[tone]}</span>
+                    <span className="title">{lib.tones[tone]}</span>
+                </button>
             )
         } else if (props.format === "scales") {
             let scale = parseInt(props.children);
 
             return (
-                <button onClick={() => setScale(scale)}>{lib.scales[scale][0]}</button>
+                <button 
+                onClick={() => setScale(scale)}
+                className="dropbtn">
+                    <span className="icon text">{lib.scales[scale][0][0]}</span>
+                    <span className="title">{lib.scales[scale][0]}</span>
+                </button>
             )
         } else if (props.format === "instruments") {
             let instrument = parseInt(props.children);
 
             return (
-                <button onClick={() => setInstrument(instrument)}>{lib.instruments[instrument][0]}</button>
+                <button 
+                onClick={() => setInstrument(instrument)}
+                className="dropbtn">
+                    <span className="icon text">{lib.instruments[instrument][0][0]}</span>
+                    <span className="title">{lib.instruments[instrument][0]}</span>
+                </button>
             )
         } else if (props.format === "tuning") {
             let tuning = parseInt(props.children);
 
             return (
-                <button onClick={() => setTuning(tuning)}>{lib.tuning[tuning][0]}</button>
+                <button 
+                onClick={() => setTuning(tuning)}
+                className="dropbtn">
+                    <span className="icon text">{lib.tuning[tuning][0][0]}</span>
+                    <span className="title">{lib.tuning[tuning][0]}</span>
+                </button>
             )
         }
     }
@@ -63,7 +85,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('tones')}>
                         <span className="icon text">{lib.tones[tone]}</span>
                         <span className="title">Tone: {lib.tones[tone]}</span>
-                        <span class="chevron"><BsChevronRight /></span>
+                        <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
             )
@@ -75,7 +97,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('scales')}>
                         <span className="icon"><GiMusicalScore /></span>
                         <span className="title">Scale: {lib.scales[scale][0]}</span>
-                        <span class="chevron"><BsChevronRight /></span>
+                        <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
             )
@@ -87,7 +109,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('instruments')}>
                         <span className="icon"><FaGuitar /></span>
                         <span className="title">Instrument: {lib.instruments[instrument][0]}</span>
-                        <span class="chevron"><BsChevronRight /></span>
+                        <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
             )
@@ -99,7 +121,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('tuning')}>
                         <span className="icon"><VscRepoForked /></span>
                         <span className="title">Tuning: {lib.tuning[tuning][0]}</span>
-                        <span class="chevron"><BsChevronRight /></span>
+                        <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
             )
@@ -108,7 +130,7 @@ export default (props) => {
                 <>
                     <button 
                     className="dropbtn" 
-                    onClick={() => console.log('settings open')}>
+                    onClick={() => setActiveMenu('settings')}>
                         <span className="icon"><FaCog /></span>
                         <span className="title">Settings</span>
                         <span className="chevron"><BsChevronRight /></span>
@@ -128,7 +150,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon text">{lib.tones[tone]}</span>
                         <span className="title">Tone: {lib.tones[tone]}</span>
-                        <span class="chevron"><BsChevronLeft /></span>
+                        <span className="chevron"><BsChevronLeft /></span>
                     </button>
                     {lib.tones.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
                 </>
@@ -141,7 +163,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><GiMusicalScore /></span>
                         <span className="title">Scale: {lib.scales[scale][0]}</span>
-                        <span class="chevron"><BsChevronLeft /></span>
+                        <span className="chevron"><BsChevronLeft /></span>
                     </button>
                     {lib.scales.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)} 
                 </>
@@ -154,7 +176,7 @@ export default (props) => {
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><FaGuitar /></span>
                         <span className="title">Instrument: {lib.instruments[instrument][0]}</span>
-                        <span class="chevron"><BsChevronLeft /></span>
+                        <span className="chevron"><BsChevronLeft /></span>
                     </button>
                     {lib.instruments.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)} 
                 </>
@@ -167,9 +189,9 @@ export default (props) => {
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><VscRepoForked /></span>
                         <span className="title">Tuning: {lib.tuning[tuning][0]}</span>
-                        <span class="chevron"><BsChevronLeft /></span>
-                        {lib.tuning.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)} 
+                        <span className="chevron"><BsChevronLeft /></span> 
                     </button>
+                    {lib.tuning.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
                 </>
             )
         } else if (props.format === "settings") {
@@ -182,8 +204,17 @@ export default (props) => {
                         <span className="title">Settings</span>
                         <span className="chevron"><BsChevronLeft /></span>
                     </button>
+                    <button 
+                    onClick={() => setLefty(!lefty)}
+                    className="dropbtn">
+                        <span className={`icon ${lefty ? 'reverse' : ''}`}><FaHandPaper /></span>
+                        <span className="title">Left Handed: {lefty ? 'on' : 'off'}</span>
+                    </button>
                 </>
             )
+        } else {
+            /* WHAT THE FUCK OMG I NEED TO HEAR IT */
+            return null
         }
     }
 
@@ -202,20 +233,28 @@ export default (props) => {
                 timeout={500}
                 classNames="menu-primary">
                     <div className="menu">
-                        <DropBtn format="tones"></DropBtn>
-                        <DropBtn format="scales"></DropBtn>
-                        <DropBtn format="instruments"></DropBtn>
-                        <DropBtn format="tuning"></DropBtn>
-                        <DropBtn format="settings"></DropBtn>             
+                        <div className="menuoptions">
+                            <DropBtn format="tones"></DropBtn>
+                            <DropBtn format="scales"></DropBtn>
+                            <DropBtn format="instruments"></DropBtn>
+                            <DropBtn format="tuning"></DropBtn>
+                            <DropBtn format="settings"></DropBtn>
+                        </div>  
+                        <div className="contact">
+                            <button>
+                                <span className="icon text">@</span>
+                                <span className="title">
+                                    <a href="#"><CgWebsite /></a>
+                                    <a href="https://github.com/hoxas"><FaGithub /></a>
+                                    <a href="https://www.linkedin.com/in/allan-almeida-745a5015a/"><FaLinkedin /></a>
+                                </span>
+                            </button>
+                        </div>           
                     </div>
                 </CSSTransition>
 
                 <CSSTransition 
-                in={activeMenu === 'tones' || 
-                    activeMenu === 'scales'|| 
-                    activeMenu === 'instruments' || 
-                    activeMenu === 'tuning' ||
-                    activeMenu === 'settings'}
+                in={activeMenu !== 'main'}
                 unmountOnExit
                 timeout={500}
                 classNames="menu-secondary">
@@ -223,16 +262,6 @@ export default (props) => {
                         <BackBtn format={activeMenu} />
                     </div>
                 </CSSTransition>
-            </div>
-            <div className="contact">
-                <button>
-                    <span className="icon text">@</span>
-                    <span class="title">
-                        <a href="#"><CgWebsite /></a>
-                        <a href="https://github.com/hoxas"><FaGithub /></a>
-                        <a href="https://www.linkedin.com/in/allan-almeida-745a5015a/"><FaLinkedin /></a>
-                    </span>
-                </button>
             </div>
         </div>
     );

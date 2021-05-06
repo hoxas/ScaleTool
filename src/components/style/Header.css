@@ -11,6 +11,7 @@
 .nav:hover,
 .nav.active {
   width: 300px;
+  overflow-y: auto;
 }
 
 .nav .logo {
@@ -29,6 +30,12 @@
   line-height: 60px;
 }
 
+.menu {
+  /* height: calc(100vh - 60px); */
+  display: flex;
+  flex-direction: column;
+}
+
 .nav button {
   border: none;
   width: 100%;
@@ -45,6 +52,10 @@
   line-height: 60px;
   text-align: center;
   font-size: 24px;
+}
+
+.nav .icon.reverse {
+  transform: scaleX(-1);
 }
 
 .nav .icon.text {
@@ -68,12 +79,11 @@
 
 .nav button:hover {
   background: #ecf1f2;
+  cursor: pointer;
 }
 
 .contact {
   width: 100%;
-  position: absolute;
-  bottom: 0;
 }
 
 .contact a {
@@ -100,31 +110,39 @@
 /* animations */
 .menu-primary-enter {
   position: absolute;
-  transform: translateX(-110%);
+  /* transform: translateX(-110%); */
+  opacity: 0;
+  width: 300px;
 }
 
 .menu-primary-enter-active {
-  transform: translateX(0%);
-  transition: all 500ms ease;
+  /* transform: translateX(0%); */
+  opacity: 1;
+  transition: all 250ms ease;
 }
 
 .menu-primary-exit {
   position: absolute;
+  width: 300px;
 }
 
 .menu-primary-exit-active {
-  transform: translateX(-110%);
-  transition: all 500ms ease;
+  /* transform: translateX(-110%); */
+  opacity: 0;
+  transition: all 250ms ease;
 }
 
 .menu-secondary-enter {
   position: absolute;
-  transform: translateX(110%);
+  /* transform: translateX(110%); */
+  opacity: 0;
+  width: 300px;
 }
 
 .menu-secondary-enter-active {
-  transform: translateX(0%);
-  transition: all 500ms ease;
+  /* transform: translateX(0%); */
+  opacity: 1;
+  transition: all 250ms ease;
 }
 
 .menu-secondary-exit {
@@ -132,6 +150,7 @@
 }
 
 .menu-secondary-exit-active {
-  transform: translateX(110%);
-  transition: all 500ms ease;
+  /* transform: translateX(110%); */
+  opacity: 0;
+  transition: all 250ms ease;
 }
