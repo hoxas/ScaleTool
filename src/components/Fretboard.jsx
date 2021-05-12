@@ -8,6 +8,8 @@ export default (props) => {
     const instrument = props.instrument;
     const tuning = props.tuning;
     const lefty = props.lefty;
+    const scaleNotes = props.scaleNotes;
+
 
     function buildFretboard () {
         let builtFret = [];
@@ -38,6 +40,14 @@ export default (props) => {
     let fretCount = [...Array(25).keys()];
 
     /* console.log(fretCount) */
+
+    /* function scaleNotes () {
+        let scaleNotes = [];
+
+        builtScale.map((value, index) => scaleNotes.push(builtScale[index][1]))
+
+        return scaleNotes;
+    } */
     
 
     return (
@@ -49,7 +59,7 @@ export default (props) => {
                 {builtFret.map((value, index) => (
                     <ul key={index} className={index}> 
                         {builtFret[index].map((value, index) => (
-                            <li key={index}>{lib.tones[value]}</li>
+                            <li key={index} className={scaleNotes.includes(lib.tones[value]) ? 'colored' : ''}>{lib.tones[value]}</li>
                         ))}
                     </ul>
                 ))}

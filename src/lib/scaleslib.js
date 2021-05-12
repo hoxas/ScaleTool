@@ -89,3 +89,16 @@ let bass = ['Bass', 4];
 let bass5 = ['5-String Bass', 5]
 
 export const instruments = [guitar, bass, bass5]
+
+// interval formula in half steps
+
+const [, m2, M2, m3, M3, P4, tt, P5, m6, M6, m7, M7, oct] = [...Array(13).keys()];
+
+// chord formula
+
+const maj = ['Major', [M3, m3]]
+const min = ['Minor', [m3, M3]]
+const dim = ['Diminished', [m3, m3]]
+const aug = ['Augmented', [M3, M3]]
+
+const chords = [maj, min, dim, aug]

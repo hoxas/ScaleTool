@@ -1,3 +1,26 @@
+:root {
+  --text: #050707;
+  --background: #f3f5f9;
+  --dark-accent: #281c2d;
+  --accent: #8155ba;
+  --light-accent: #695e93;
+  --light-detail: #beafc2;
+}
+
+#darktheme {
+  --text: #f3f5f9;
+  --background: #050707;
+  --dark-accent: #281c2d;
+  --accent: #8155ba;
+  --light-accent: #695e93;
+  --light-detail: #beafc2;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
 .content {
   position: absolute;
   left: 60px;

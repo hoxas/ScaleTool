@@ -2,7 +2,7 @@ import * as lib from '../lib/scaleslib.js';
 import React from 'react';
 import './style/Header.css';
 
-import { FaGuitar, FaCog, FaGithub, FaLinkedin, FaHandPaper } from 'react-icons/fa';
+import { FaGuitar, FaCog, FaGithub, FaLinkedin, FaHandPaper, FaMoon, FaSun } from 'react-icons/fa';
 import { GiMusicalScore } from 'react-icons/gi';
 import { VscRepoForked } from 'react-icons/vsc';
 import { BsMusicNoteBeamed, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
@@ -23,6 +23,9 @@ export default (props) => {
     const setTuning = props.setTuning;
     const lefty = props.lefty;
     const setLefty = props.setLefty;
+
+    const isDark = props.isDark;
+    const setDarkTheme = props.setDarkTheme;
 
     const [activeMenu, setActiveMenu] = React.useState('main');
 
@@ -205,6 +208,12 @@ export default (props) => {
                         <span className="chevron"><BsChevronLeft /></span>
                     </button>
                     <button 
+                    onClick={() => setDarkTheme(!isDark)}
+                    className="dropbtn">
+                        <span className="icon">{isDark ? <FaSun /> : <FaMoon />}</span>
+                        <span className="title">Dark Theme: {isDark ? 'on' : 'off'}</span>
+                    </button>
+                    <button 
                     onClick={() => setLefty(!lefty)}
                     className="dropbtn">
                         <span className={`icon ${lefty ? 'reverse' : ''}`}><FaHandPaper /></span>
@@ -234,11 +243,11 @@ export default (props) => {
                 classNames="menu-primary">
                     <div className="menu">
                         <div className="menuoptions">
-                            <DropBtn format="tones"></DropBtn>
-                            <DropBtn format="scales"></DropBtn>
-                            <DropBtn format="instruments"></DropBtn>
-                            <DropBtn format="tuning"></DropBtn>
-                            <DropBtn format="settings"></DropBtn>
+                            <DropBtn format="tones" />
+                            <DropBtn format="scales" />
+                            <DropBtn format="instruments" />
+                            <DropBtn format="tuning" />
+                            <DropBtn format="settings" />
                         </div>  
                         <div className="contact">
                             <button>

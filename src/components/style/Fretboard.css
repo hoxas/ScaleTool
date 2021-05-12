@@ -18,6 +18,10 @@
   border-right: 1px solid #f3f5f9;
 }
 
+.fretboard .strings ul li.colored {
+  background: #53565a;
+}
+
 .fretNumber {
   padding: 10px;
   background: #f3f5f9;
@@ -29,6 +33,7 @@ ul {
   justify-content: center;
   align-items: center;
 }
+
 ul li {
   list-style: none;
   display: inline-block;
