@@ -2,12 +2,21 @@ import React from 'react'
 
 import './style/Main.css'
 
+import * as lib from '../lib/scaleslib.js'
+
 import Header from './Header.jsx'
 import ScaleDisplayer from './ScaleDisplayer.jsx'
 import Fretboard from './Fretboard.jsx'
+import ChordBuilder from './ChordBuilder.jsx'
 
 export default props => {
     /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
+
+    const [isDark, setDarkTheme] = React.useState(localStorage.getItem('theme') === 'true' || false);
+
+    localStorage.setItem('theme', isDark);
+
+    isDark ? document.body.id = 'darktheme' : document.body.id = ''
 
     const [tone, setTone] = React.useState(parseInt(localStorage.getItem('tone')) || 0);
     const [scale, setScale] = React.useState(parseInt(localStorage.getItem('scale')) || 0);
@@ -21,6 +30,39 @@ export default props => {
     localStorage.setItem('tuning', tuning);
     localStorage.setItem('lefty', lefty);
 
+    // scaleMachine
+    function buildScale (scale, tone) {
+        // Init array and save first tone pos.
+        let buildScale = [];
+        let tone0 = tone;
+
+        for (let i = 0; i < lib.scales[scale][1].length; i++) {
+            tone %= 12;
+            buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
+            //console.log(tones[tone], tone)
+            tone = tone + lib.scales[scale][1][i];
+        }
+
+        // scale output
+        //console.log(`${tones[tone0]} ${scale[0]} Scale`)
+        //console.log(buildScale)
+
+        const builtScale = [`${lib.tones[tone0]} ${lib.scales[scale][0]} Scale`, buildScale]
+
+        return builtScale;
+    }
+
+    let builtScale = buildScale(scale, tone)
+
+    /* console.log(builtScale) */
+
+    // Make array only with notes in scale
+
+    let scaleNotes = [];
+    builtScale[1].map((value, index) => scaleNotes.push(builtScale[1][index][0]))
+
+    /* console.log(scaleNotes) */
+
     return (
         <div className="Main">
             <Header 
@@ -33,19 +75,25 @@ export default props => {
                 tuning={tuning} 
                 setTuning={setTuning}
                 lefty={lefty}
-                setLefty={setLefty} />
+                setLefty={setLefty}
+                isDark={isDark}
+                setDarkTheme={setDarkTheme} />
             <div className="content">
                 <ScaleDisplayer 
                     tone={tone} 
                     scale={scale} 
                     instrument={instrument} 
-                    tuning={tuning} />
+                    tuning={tuning}
+                    builtScale={builtScale} />
                 <Fretboard 
                     tone={tone} 
                     scale={scale} 
                     instrument={instrument} 
                     tuning={tuning}
-                    lefty={lefty} />
+                    lefty={lefty}
+                    scaleNotes={scaleNotes} />
+                <ChordBuilder
+                    scaleNotes={scaleNotes} />
             </div>
         </div>
 

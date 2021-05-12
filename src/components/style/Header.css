@@ -2,7 +2,7 @@
   position: fixed;
   width: 60px;
   height: 100%;
-  background: #050707;
+  background: var(--light-detail);
   transition: width 500ms;
   overflow: hidden;
   z-index: 100;
@@ -18,7 +18,7 @@
   width: 100%;
   height: 60px;
   display: flex;
-  color: #ecf1f2;
+  color: var(--text);
 }
 
 .nav .logo .icon {
@@ -41,7 +41,8 @@
   width: 100%;
   height: 60px;
   display: flex;
-  background: #f4d800;
+  background: var(--light-accent);
+  color: var(--text);
   margin: 0;
   transition: background 500ms;
 }
@@ -78,7 +79,7 @@
 }
 
 .nav button:hover {
-  background: #ecf1f2;
+  background: var(--accent);
   cursor: pointer;
 }
 
@@ -88,21 +89,21 @@
 
 .contact a {
   text-decoration: none;
-  color: #050707;
   width: 60px;
   text-align: center;
+  color: var(--text);
   font-size: 26px;
   padding: 0px 10px;
   transition: background 500ms;
 }
 
 .contact a:hover {
-  background-color: #f4d800;
+  background-color: var(--light-accent);
 }
 
 .contact .title {
   padding: 0px;
-  color: #53565a;
+  color: var(--text);
   display: flex;
   line-height: 68px;
 }

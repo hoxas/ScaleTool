@@ -7,30 +7,7 @@ export default (props) => {
     const scale = props.scale;
     const instrument = props.instrument;
     const tuning = props.tuning;
-
-    // scaleMachine
-    function buildScale (scale, tone) {
-        // Init array and save first tone pos.
-        let buildScale = [];
-        let tone0 = tone;
-
-        for (let i = 0; i < lib.scales[scale][1].length; i++) {
-            tone %= 12;
-            buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
-            //console.log(tones[tone], tone)
-            tone = tone + lib.scales[scale][1][i];
-        }
-
-        // scale output
-        //console.log(`${tones[tone0]} ${scale[0]} Scale`)
-        //console.table(buildScale)
-
-        const builtScale = [`${lib.tones[tone0]} ${lib.scales[scale][0]} Scale`, buildScale]
-
-        return builtScale;
-    }
-
-    let builtScale = buildScale(scale, tone)
+    const builtScale = props.builtScale;
 
     return (
         <div className="scaleDisplayer">
