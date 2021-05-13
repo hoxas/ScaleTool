@@ -59,7 +59,7 @@ export default (props) => {
                 {builtFret.map((value, index) => (
                     <ul key={index} className={index}> 
                         {builtFret[index].map((value, index) => (
-                            <li key={index} className={scaleNotes.includes(lib.tones[value]) ? 'colored' : ''}>{lib.tones[value]}</li>
+                            <li key={index} className={scaleNotes.includes(value) ? 'colored' : ''}>{lib.tones[value]}</li>
                         ))}
                     </ul>
                 ))}

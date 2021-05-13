@@ -38,7 +38,7 @@ export default props => {
 
         for (let i = 0; i < lib.scales[scale][1].length; i++) {
             tone %= 12;
-            buildScale.push([lib.tones[tone], lib.scales[scale][2][i]])
+            buildScale.push([tone, lib.scales[scale][2][i]])
             //console.log(tones[tone], tone)
             tone = tone + lib.scales[scale][1][i];
         }
