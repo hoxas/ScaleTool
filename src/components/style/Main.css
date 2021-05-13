@@ -26,4 +26,5 @@ body {
   left: 60px;
   width: calc(100% - 60px);
   height: 100%;
+  background: var(--dark-accent)
 }

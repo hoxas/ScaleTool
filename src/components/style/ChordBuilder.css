@@ -1,0 +1,17 @@
+.chordbuilder {
+    background: var(--dark-accent);
+    display: flex;
+    flex-direction: row;
+}
+
+.chordbuilder button {
+    border: 1px black solid;
+    background: gray;
+    padding: 2px;
+    /* border-radius: 2px; */
+    margin: 1px 0px;
+}
+
+.chordbuilder button.colored {
+    background: var(--accent)
+}

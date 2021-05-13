@@ -20,7 +20,7 @@ export default (props) => {
                     {builtScale[1].map((value, index) => <li key={index}>{value[1]}</li>)}
                 </ul>
                 <ul className="note">
-                    {builtScale[1].map((value, index) => <li key={index}>{value[0]}</li>)}
+                    {builtScale[1].map((value, index) => <li key={index}>{lib.tones[value[0]]}</li>)}
                 </ul>
             </div>
         </div>

@@ -23,6 +23,7 @@
   position: relative;
   border-top: 5px solid #2c2e2f;
   border-bottom: 5px solid #2c2e2f;
+  background: var(--background);
 }
 
 .tones::before {
