@@ -24,6 +24,16 @@ export default props => {
     const [tuning, setTuning] = React.useState(parseInt(localStorage.getItem('tuning')) || 0);
     const [lefty, setLefty] = React.useState(localStorage.getItem('lefty') === 'true' || false);
 
+    const [curNote, setCurNote] = React.useState('none');
+    const [curChord, setCurChord] = React.useState(0);
+    
+
+    console.log(curNote, curChord)
+
+    /* curChord === lib.chords[index][1][i] ? 0 :  */
+
+    /* {console.log(curChord, lib.chords[index][1][i], curChord === lib.chords[index][1][i])} */
+
     localStorage.setItem('tone', tone);
     localStorage.setItem('scale', scale);
     localStorage.setItem('instrument', instrument);
@@ -63,6 +73,15 @@ export default props => {
 
     /* console.log(scaleNotes) */
 
+    function chordBuild (root, chord) {
+        let chordNotes = [root]
+        chord[1].map((value) => {
+            root += value
+            chordNotes.push(root % 12)})
+        /* console.log(chordNotes.map((value) => tones[value])) */
+        return chordNotes
+    }
+
     return (
         <div className="Main">
             <Header 
@@ -91,9 +110,17 @@ export default props => {
                     instrument={instrument} 
                     tuning={tuning}
                     lefty={lefty}
-                    scaleNotes={scaleNotes} />
+                    scaleNotes={scaleNotes}
+                    chordBuild={chordBuild}
+                    curChord={curChord}
+                    curNote={curNote} />
                 <ChordBuilder
-                    scaleNotes={scaleNotes} />
+                    scaleNotes={scaleNotes}
+                    chordBuild={chordBuild}
+                    curChord={curChord}
+                    setCurChord={setCurChord}
+                    curNote={curNote}
+                    setCurNote={setCurNote} />
             </div>
         </div>
 
