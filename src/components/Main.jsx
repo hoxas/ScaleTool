@@ -75,6 +75,7 @@ export default props => {
 
     function chordBuild (root, chord) {
         let chordNotes = [root]
+        if (chord === 0) return chordNotes;
         chord[1].map((value) => {
             root += value
             chordNotes.push(root % 12)})

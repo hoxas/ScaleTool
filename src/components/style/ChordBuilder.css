@@ -13,9 +13,9 @@
 }
 
 .chordbuilder button.colored {
-    background: var(--accent)
+    background: var(--accent);
 }
 
 .chordbuilder button.selected {
-    background: var(--background)
+    background: var(--background);
 }

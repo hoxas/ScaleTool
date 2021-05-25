@@ -22,6 +22,10 @@
   background: #53565a;
 }
 
+.fretboard .strings ul li.selected {
+  background: red;
+}
+
 .fretNumber {
   padding: 10px;
   background: #f3f5f9;
