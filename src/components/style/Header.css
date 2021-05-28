@@ -78,6 +78,25 @@
   white-space: nowrap;
 }
 
+.nav .trash {
+  margin-left: auto;
+  padding-right: 8px;
+  white-space: nowrap;
+  min-width: 60px;
+  height: 60px;
+}
+
+.nav .trash button {
+  font-size: 24px;
+  text-align: center;
+  transition: background 500ms;
+}
+
+.nav .trash button:hover {
+  background-color: var(--light-accent);
+}
+
+
 .nav button:hover {
   background: var(--accent);
   cursor: pointer;

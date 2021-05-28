@@ -5,13 +5,16 @@ import './style/Header.css';
 import { FaGuitar, FaCog, FaGithub, FaLinkedin, FaHandPaper, FaMoon, FaSun } from 'react-icons/fa';
 import { GiMusicalScore } from 'react-icons/gi';
 import { VscRepoForked } from 'react-icons/vsc';
-import { BsMusicNoteBeamed, BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { BsMusicNoteBeamed, BsChevronLeft, BsChevronRight, BsFillTrashFill } from 'react-icons/bs';
 import { CgWebsite } from 'react-icons/cg';
 
 import { CSSTransition } from 'react-transition-group';
 
 export default (props) => {
     /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
+
+    const H = 1;
+    const W = 2;
 
     const tone = props.tone;
     const setTone = props.setTone;
@@ -27,10 +30,37 @@ export default (props) => {
     const isDark = props.isDark;
     const setDarkTheme = props.setDarkTheme;
 
+    const customScale = props.customScale;
+    const setCustomScale = props.setCustomScale;
+    const customInstrument = props.customInstrument;
+    const setCustomInstrument = props.setCustomInstrument;
+    const customTuning = props.customTuning;
+    const setCustomTuning = props.setCustomTuning;
+
     const [activeMenu, setActiveMenu] = React.useState('main');
 
     function Bttn (props) {
-        /* button type tone */
+        
+        function removeBttn (e, custItem) {
+            e.stopPropagation();
+
+            if (activeMenu === 'scales') {
+                (scale === custItem - 1 || -custItem - 1) && setScale(0);
+
+                setCustomScale(customScale.length === 1 ? [] : customScale.filter((item, i) => i !== custItem))
+                /* console.log(customScale) */
+            } else if (activeMenu === 'instruments') {
+                (instrument === custItem - 1 || -custItem - 1) && setInstrument(0);
+
+                setCustomInstrument(customInstrument.length === 1 ? [] : customInstrument.filter((item, i) => i !== custItem))
+            } else if (activeMenu === 'tuning') {
+                (tuning === custItem - 1 || -custItem - 1) && setTuning(0);
+
+                setCustomTuning(customTuning.length === 1 ? [] : customInstrument.filter((item, i) => i !== custItem))
+            }
+            
+        }
+
         if (props.format === "tones") {
             let tone = parseInt(props.children);
 
@@ -43,38 +73,82 @@ export default (props) => {
                 </button>
             )
         } else if (props.format === "scales") {
+
             let scale = parseInt(props.children);
 
-            return (
-                <button 
-                onClick={() => setScale(scale)}
-                className="dropbtn">
-                    <span className="icon text">{lib.scales[scale][0][0]}</span>
-                    <span className="title">{lib.scales[scale][0]}</span>
-                </button>
-            )
+            if (props.custom === true) {
+                return (
+                    <button 
+                    onClick={() => scale === 0 ? setScale(scale - 1) : setScale(-scale - 1)}
+                    className="dropbtn">
+                        <span className="icon text">{customScale[scale][0][0]}</span>
+                        <span className="title">{customScale[scale][0]}</span>
+                        <span className="trash">
+                            <button onClick={(e) => removeBttn(e, scale)}><BsFillTrashFill /></button>
+                        </span>
+                    </button>
+                )
+            } else {  
+                return (
+                    <button 
+                    onClick={() => setScale(scale)}
+                    className="dropbtn">
+                        <span className="icon text">{lib.scales[scale][0][0]}</span>
+                        <span className="title">{lib.scales[scale][0]}</span>
+                    </button>
+                )
+            }
+            
         } else if (props.format === "instruments") {
             let instrument = parseInt(props.children);
 
-            return (
-                <button 
-                onClick={() => setInstrument(instrument)}
-                className="dropbtn">
-                    <span className="icon text">{lib.instruments[instrument][0][0]}</span>
-                    <span className="title">{lib.instruments[instrument][0]}</span>
-                </button>
-            )
+            if (props.custom === true) {
+                return (
+                    <button 
+                    onClick={() => instrument === 0 ? setInstrument(instrument - 1) : setInstrument(-instrument - 1)}
+                    className="dropbtn">
+                        <span className="icon text">{customInstrument[instrument][0][0]}</span>
+                        <span className="title">{customInstrument[instrument][0]}</span>
+                        <span className="trash">
+                            <button onClick={(e) => removeBttn(e, instrument)}><BsFillTrashFill /></button>
+                        </span>
+                    </button>
+                )
+            } else {
+                return (
+                    <button 
+                    onClick={() => setInstrument(instrument)}
+                    className="dropbtn">
+                        <span className="icon text">{lib.instruments[instrument][0][0]}</span>
+                        <span className="title">{lib.instruments[instrument][0]}</span>
+                    </button>
+                )
+            }
         } else if (props.format === "tuning") {
             let tuning = parseInt(props.children);
 
-            return (
-                <button 
-                onClick={() => setTuning(tuning)}
-                className="dropbtn">
-                    <span className="icon text">{lib.tuning[tuning][0][0]}</span>
-                    <span className="title">{lib.tuning[tuning][0]}</span>
-                </button>
-            )
+            if (props.custom === true) {
+                return (
+                    <button 
+                    onClick={() => tuning === 0 ? setTuning(tuning - 1) : setTuning(-tuning - 1)}
+                    className="dropbtn">
+                        <span className="icon text">{customTuning[tuning][0][0]}</span>
+                        <span className="title">{customTuning[tuning][0]}</span>
+                        <span className="trash">
+                            <button onClick={(e) => removeBttn(e, tuning)}><BsFillTrashFill /></button>
+                        </span>
+                    </button>
+                )
+            } else {
+                return (
+                    <button 
+                    onClick={() => setTuning(tuning)}
+                    className="dropbtn">
+                        <span className="icon text">{lib.tuning[tuning][0][0]}</span>
+                        <span className="title">{lib.tuning[tuning][0]}</span>
+                    </button>
+                )
+            }
         }
     }
     
@@ -99,7 +173,7 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('scales')}>
                         <span className="icon"><GiMusicalScore /></span>
-                        <span className="title">Scale: {lib.scales[scale][0]}</span>
+                        <span className="title">Scale: {scale >= 0 ? lib.scales[scale][0] : scale === -1 ? customScale[scale + 1][0] : customScale[Math.abs(scale + 1)][0]}</span>
                         <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
@@ -111,7 +185,7 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('instruments')}>
                         <span className="icon"><FaGuitar /></span>
-                        <span className="title">Instrument: {lib.instruments[instrument][0]}</span>
+                        <span className="title">Instrument: {instrument >= 0 ? lib.instruments[instrument][0] : instrument === -1 ? customInstrument[instrument + 1][0] : customInstrument[Math.abs(instrument + 1)][0]}</span>
                         <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
@@ -123,7 +197,7 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('tuning')}>
                         <span className="icon"><VscRepoForked /></span>
-                        <span className="title">Tuning: {lib.tuning[tuning][0]}</span>
+                        <span className="title">Tuning: {tuning >= 0 ? lib.tuning[tuning][0] : tuning === -1 ? customTuning[tuning + 1][0] : customTuning[Math.abs(tuning + 1)][0]}</span>
                         <span className="chevron"><BsChevronRight /></span>
                     </button>
                 </>
@@ -165,10 +239,30 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><GiMusicalScore /></span>
-                        <span className="title">Scale: {lib.scales[scale][0]}</span>
+                        <span className="title">
+                            Scale: {scale >= 0 ? lib.scales[scale][0] : scale === -1 ? customScale[scale + 1][0] : customScale[Math.abs(scale + 1)][0]}
+                        </span>
                         <span className="chevron"><BsChevronLeft /></span>
                     </button>
-                    {lib.scales.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)} 
+                    {lib.scales.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
+                    {customScale.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
+                    <button className="dropbtn" 
+                    onClick={() => setCustomScale(customScale.concat([[
+                        "Test",
+                        [W, H, W, W, H, W + H, W],
+                        [
+                            "I",
+                            "II",
+                            "III",
+                            "IV",
+                            "V",
+                            "VI",
+                            "VII"
+                        ]
+                    ]]))}>
+                        <span className="icon text">+</span>
+                        <span className="title">Add Scale</span>
+                    </button> 
                 </>
             )
         } else if (props.format === "instruments") {
@@ -178,10 +272,21 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><FaGuitar /></span>
-                        <span className="title">Instrument: {lib.instruments[instrument][0]}</span>
+                        <span className="title">
+                            Instrument: {instrument >= 0 ? lib.instruments[instrument][0] : instrument === -1 ? customInstrument[instrument + 1][0] : customInstrument[Math.abs(instrument + 1)][0]}
+                        </span>
                         <span className="chevron"><BsChevronLeft /></span>
                     </button>
-                    {lib.instruments.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)} 
+                    {lib.instruments.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
+                    {customInstrument.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
+                    <button className="dropbtn" 
+                    onClick={() => setCustomInstrument(customInstrument.concat([[
+                        '12-String Guitar', 
+                        12
+                    ]]))}>
+                        <span className="icon text">+</span>
+                        <span className="title">Add Instrument</span>
+                    </button>  
                 </>
             )
         } else if (props.format === "tuning") {
@@ -191,10 +296,21 @@ export default (props) => {
                     className="dropbtn" 
                     onClick={() => setActiveMenu('main')}>
                         <span className="icon"><VscRepoForked /></span>
-                        <span className="title">Tuning: {lib.tuning[tuning][0]}</span>
+                        <span className="title">
+                            Tuning: {tuning >= 0 ? lib.tuning[tuning][0] : tuning === -1 ? customTuning[tuning + 1][0] : customTuning[Math.abs(tuning + 1)][0]}
+                        </span>
                         <span className="chevron"><BsChevronLeft /></span> 
                     </button>
                     {lib.tuning.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
+                    {customTuning.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
+                    <button className="dropbtn" 
+                    onClick={() => setCustomTuning(customTuning.concat([[
+                        'Open G', 
+                        [2, 11, 7, 2, 7, 2]
+                    ]]))}>
+                        <span className="icon text">+</span>
+                        <span className="title">Add Tuning</span>
+                    </button>  
                 </>
             )
         } else if (props.format === "settings") {
@@ -210,7 +326,7 @@ export default (props) => {
                     <button 
                     onClick={() => setDarkTheme(!isDark)}
                     className="dropbtn">
-                        <span className="icon">{isDark ? <FaSun /> : <FaMoon />}</span>
+                        <span className="icon">{isDark ? <FaMoon /> : <FaSun />}</span>
                         <span className="title">Dark Theme: {isDark ? 'on' : 'off'}</span>
                     </button>
                     <button 
