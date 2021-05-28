@@ -26,9 +26,22 @@ export default props => {
 
     const [curNote, setCurNote] = React.useState('none');
     const [curChord, setCurChord] = React.useState(0);
-    
 
-    console.log(curNote, curChord)
+    function parseJSON (json) {
+        try {
+            return JSON.parse(localStorage.getItem(json));
+        } catch (err) {
+            return false;
+        }
+    }
+
+    const [customScale, setCustomScale] = React.useState(parseJSON('customScale') || [])
+    const [customInstrument, setCustomInstrument] = React.useState(parseJSON('customInstrument') || [])
+    const [customTuning, setCustomTuning] = React.useState(parseJSON('customTuning') || [])
+
+    console.log(customScale)
+    
+    /* console.log(curNote, curChord) */
 
     /* curChord === lib.chords[index][1][i] ? 0 :  */
 
@@ -39,6 +52,9 @@ export default props => {
     localStorage.setItem('instrument', instrument);
     localStorage.setItem('tuning', tuning);
     localStorage.setItem('lefty', lefty);
+    localStorage.setItem('customScale', JSON.stringify(customScale));
+    localStorage.setItem('customInstrument', JSON.stringify(customInstrument));
+    localStorage.setItem('customTuning', JSON.stringify(customTuning));
 
     // scaleMachine
     function buildScale (scale, tone) {
@@ -46,20 +62,40 @@ export default props => {
         let buildScale = [];
         let tone0 = tone;
 
-        for (let i = 0; i < lib.scales[scale][1].length; i++) {
-            tone %= 12;
-            buildScale.push([tone, lib.scales[scale][2][i]])
-            //console.log(tones[tone], tone)
-            tone = tone + lib.scales[scale][1][i];
+        if (scale >= 0) {
+            for (let i = 0; i < lib.scales[scale][1].length; i++) {
+                tone %= 12;
+                buildScale.push([tone, lib.scales[scale][2][i]])
+                //console.log(tones[tone], tone)
+                tone = tone + lib.scales[scale][1][i];   
+            }
+
+            const builtScale = [`${lib.tones[tone0]} ${lib.scales[scale][0]} Scale`, buildScale]
+            return builtScale;
+
+        } else {
+            let cusScale = scale + 1;
+            console.log(cusScale)
+            cusScale = cusScale < 0 ? cusScale = Math.abs(cusScale) : cusScale;
+
+            console.log(cusScale)
+            
+            for (let i = 0; i < customScale[cusScale][1].length; i++) {
+                tone %= 12;
+                buildScale.push([tone, customScale[cusScale][2][i]])
+                //console.log(tones[tone], tone)
+                tone = tone + customScale[cusScale][1][i];
+            }
+
+            const builtScale = [`${lib.tones[tone0]} ${customScale[cusScale][0]} Scale`, buildScale]
+            console.log(builtScale)
+            return builtScale;
+
         }
 
         // scale output
         //console.log(`${tones[tone0]} ${scale[0]} Scale`)
-        //console.log(buildScale)
-
-        const builtScale = [`${lib.tones[tone0]} ${lib.scales[scale][0]} Scale`, buildScale]
-
-        return builtScale;
+        //console.log(buildScale)        
     }
 
     let builtScale = buildScale(scale, tone)
@@ -97,7 +133,13 @@ export default props => {
                 lefty={lefty}
                 setLefty={setLefty}
                 isDark={isDark}
-                setDarkTheme={setDarkTheme} />
+                setDarkTheme={setDarkTheme}
+                customScale={customScale}
+                setCustomScale={setCustomScale}
+                customInstrument={customInstrument}
+                setCustomInstrument={setCustomInstrument}
+                customTuning={customTuning}
+                setCustomTuning={setCustomTuning} />
             <div className="content">
                 <ScaleDisplayer 
                     tone={tone} 
@@ -114,7 +156,9 @@ export default props => {
                     scaleNotes={scaleNotes}
                     chordBuild={chordBuild}
                     curChord={curChord}
-                    curNote={curNote} />
+                    curNote={curNote}
+                    customInstrument={customInstrument}
+                    customTuning={customTuning} />
                 <ChordBuilder
                     scaleNotes={scaleNotes}
                     chordBuild={chordBuild}

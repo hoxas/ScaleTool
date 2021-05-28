@@ -12,18 +12,20 @@ export default (props) => {
     const chordBuild = props.chordBuild;
     const curChord = props.curChord;
     const curNote = props.curNote;
+    const customInstrument = props.customInstrument;
+    const customTuning = props.customTuning;
 
 
     function buildFretboard () {
         let builtFret = [];
         let i;
-        let instStrings =  lib.instruments[instrument][1];
+        let instStrings = instrument >= 0 ? lib.instruments[instrument][1] : instrument === -1 ? customInstrument[instrument + 1][1] : customInstrument[Math.abs(instrument + 1)][1];
         
         instStrings >= 6 ? i = 0 : i = -(instStrings - 6); 
 
         for (let strings = 0; strings < instStrings; strings++) {
             builtFret.push([]);
-            let tone0 = lib.tuning[tuning][1][i];
+            let tone0 = tuning >= 0 ? lib.tuning[tuning][1][i] : tuning === -1 ? customTuning[tuning + 1][1][i] : customTuning[Math.abs(tuning + 1)][1][i];
 
             for (let fret = 0; fret < 25; fret++) {
                 tone0 %= 12;
