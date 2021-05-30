@@ -76,7 +76,6 @@ export const scales = [major, bebopdom, minor, harmonicminor];
 
 // tunings
 
-// stndrd tuning
 const stndrd = ['Standard', [4, 11, 7, 2, 9, 4]];
 const dropd = ['Drop D', [4, 11, 7, 2, 9, 2]]
 
@@ -84,15 +83,31 @@ export const tuning = [stndrd, dropd]
 
 // instruments
 
-let guitar = ['Guitar', 6];
-let bass = ['Bass', 4];
-let bass5 = ['5-String Bass', 5]
+let guitar = ['Guitar', 6, 22];
+let bass = ['Bass', 4, 22];
+let bass5 = ['5-String Bass', 5, 22]
+let classicalguitar = ['Classical Guitar', 6, 12]
 
-export const instruments = [guitar, bass, bass5]
+export const instruments = [guitar, bass, bass5, classicalguitar]
 
 // interval formula in half steps
 
 const [, m2, M2, m3, M3, P4, tt, P5, m6, M6, m7, M7, oct] = [...Array(13).keys()];
+
+export const steps = [
+    ['Minor 2nd', m2], 
+    ['Major 2nd', M2], 
+    ['Minor 3rd', m3], 
+    ['Major 3rd', M3], 
+    ['Perfect 4th', P4],
+    ['Tritone', tt],
+    ['Perfect 5th', P5],
+    ['Minor 6th', m6], 
+    ['Major 6th', M6],
+    ['Minor 7th', m7],
+    ['Major 7th', M7],
+    ['Octave', oct]
+]
 
 // chord formula
 

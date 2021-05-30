@@ -37,6 +37,8 @@ export default (props) => {
     const customTuning = props.customTuning;
     const setCustomTuning = props.setCustomTuning;
 
+    const setCustomPrompt = props.setCustomPrompt;
+
     const [activeMenu, setActiveMenu] = React.useState('main');
 
     function Bttn (props) {
@@ -56,7 +58,7 @@ export default (props) => {
             } else if (activeMenu === 'tuning') {
                 (tuning === custItem - 1 || -custItem - 1) && setTuning(0);
 
-                setCustomTuning(customTuning.length === 1 ? [] : customInstrument.filter((item, i) => i !== custItem))
+                setCustomTuning(customTuning.length === 1 ? [] : customTuning.filter((item, i) => i !== custItem))
             }
             
         }
@@ -247,19 +249,7 @@ export default (props) => {
                     {lib.scales.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
                     {customScale.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
                     <button className="dropbtn" 
-                    onClick={() => setCustomScale(customScale.concat([[
-                        "Test",
-                        [W, H, W, W, H, W + H, W],
-                        [
-                            "I",
-                            "II",
-                            "III",
-                            "IV",
-                            "V",
-                            "VI",
-                            "VII"
-                        ]
-                    ]]))}>
+                    onClick={() => setCustomPrompt('scale')}>
                         <span className="icon text">+</span>
                         <span className="title">Add Scale</span>
                     </button> 
@@ -280,10 +270,7 @@ export default (props) => {
                     {lib.instruments.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
                     {customInstrument.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
                     <button className="dropbtn" 
-                    onClick={() => setCustomInstrument(customInstrument.concat([[
-                        '12-String Guitar', 
-                        12
-                    ]]))}>
+                    onClick={() => setCustomPrompt('instrument')}>
                         <span className="icon text">+</span>
                         <span className="title">Add Instrument</span>
                     </button>  
@@ -304,10 +291,7 @@ export default (props) => {
                     {lib.tuning.map((value, index) => <Bttn key={index} format={activeMenu}>{index}</Bttn>)}
                     {customTuning.map((value, index) => <Bttn key={index} format={activeMenu} custom={true}>{index}</Bttn>)}
                     <button className="dropbtn" 
-                    onClick={() => setCustomTuning(customTuning.concat([[
-                        'Open G', 
-                        [2, 11, 7, 2, 7, 2]
-                    ]]))}>
+                    onClick={() => setCustomPrompt('tuning')}>
                         <span className="icon text">+</span>
                         <span className="title">Add Tuning</span>
                     </button>  

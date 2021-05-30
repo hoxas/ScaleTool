@@ -15,6 +15,7 @@ export default (props) => {
     const customInstrument = props.customInstrument;
     const customTuning = props.customTuning;
 
+    let instFrets = instrument >= 0 ? lib.instruments[instrument][2] : instrument === -1 ? customInstrument[instrument + 1][2] : customInstrument[Math.abs(instrument + 1)][2];
 
     function buildFretboard () {
         let builtFret = [];
@@ -27,7 +28,7 @@ export default (props) => {
             builtFret.push([]);
             let tone0 = tuning >= 0 ? lib.tuning[tuning][1][i] : tuning === -1 ? customTuning[tuning + 1][1][i] : customTuning[Math.abs(tuning + 1)][1][i];
 
-            for (let fret = 0; fret < 25; fret++) {
+            for (let fret = 0; fret < instFrets + 1; fret++) {
                 tone0 %= 12;
                 builtFret[strings].push(tone0)
                 tone0++;
@@ -42,7 +43,7 @@ export default (props) => {
     let builtFret = buildFretboard();
     /* console.log(builtFret) */
 
-    let fretCount = [...Array(25).keys()];
+    let fretCount = [...Array(instFrets + 1).keys()];
 
     /* console.log(fretCount) */
 
