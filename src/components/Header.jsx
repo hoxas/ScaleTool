@@ -13,8 +13,7 @@ import { CSSTransition } from 'react-transition-group';
 export default (props) => {
     /* React.useState(parseInt(localStorage.getItem('tone')) || lib.tones[0]) */
 
-    const H = 1;
-    const W = 2;
+    // Initializing Variables
 
     const tone = props.tone;
     const setTone = props.setTone;
