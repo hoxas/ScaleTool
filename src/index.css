@@ -1,19 +1,18 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+    width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent !important;
+    background: transparent !important;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #bbbbbb;
-  border-radius: 10px;
+    background: #bbbbbb;
+    border-radius: 10px;
 }

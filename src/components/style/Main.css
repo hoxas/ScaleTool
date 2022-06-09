@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Besley&family=Codystar&display=swap");
+
 :root {
     --text: #000000;
     --main: #3a0ca3;
@@ -17,6 +19,7 @@
 body {
     background: var(--inner);
     color: var(--text);
+    font-family: Besley;
 }
 
 button {
