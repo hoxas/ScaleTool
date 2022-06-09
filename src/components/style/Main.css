@@ -1,133 +1,133 @@
 :root {
-  --text: #050707;
-  --background: #f3f5f9;
-  --dark-accent: #281c2d;
-  --accent: #8155ba;
-  --light-accent: #695e93;
-  --light-detail: #beafc2;
+    --text: #000000;
+    --main: #3a0ca3;
+    --alt-main: #210e4b;
+    --inner: #e7c6ff;
+    --active: #f72585;
+    --fretboard-background: #d9d9d9;
+    --deegres-background: #4361ee;
+    --scale-name-background: #7209b7;
+    --text2: #ffffff;
 }
 
 #darktheme {
-  --text: #f3f5f9;
-  --background: #050707;
-  --dark-accent: #281c2d;
-  --accent: #8155ba;
-  --light-accent: #695e93;
-  --light-detail: #beafc2;
+    --text: #f3f5f9;
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
+    background: var(--inner);
+    color: var(--text);
+}
+
+button {
+    border: none;
 }
 
 .content {
-  position: absolute;
-  left: 60px;
-  width: calc(100% - 60px);
-  height: 100%;
-  background: var(--dark-accent)
+    position: absolute;
+    left: 60px;
+    width: calc(100% - 60px);
+    height: 100%;
 }
 
 .prompt {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 450px;
-  transform: scale(1) translate(-50%, -50%);
-  background: var(--background);
-  border-radius: 5px;
-  overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 450px;
+    transform: scale(1) translate(-50%, -50%);
+    background: var(--inner);
+    border-radius: 5px;
+    overflow: auto;
 }
 
 .prompt .head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 10px;
-  background: var(--text);
-  color: var(--background);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--alt-main);
+    color: var(--text2);
 }
 
 .prompt .head button {
-  background: var(--text);
-  color: var(--light-accent);
-  border: 1px solid var(--dark-accent);
-  border-radius: 30px;
-  min-width: 30px;
-  height: 30px;
-  margin-left: 5px;
-  padding: 5px;
+    background: var(--main);
+    color: var(--inner);
+    border-radius: 30px;
+    min-width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    padding: 5px;
 }
 
 .prompt .head button:hover {
-  background: var(--light-detail);
+    background: var(--active);
 }
 
 .prompt .prompt-content {
-  height: calc(100% - 48px);
+    height: calc(100% - 48px);
 }
 
 .prompt .prompt-content form {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .prompt .prompt-content form .inner {
-  padding: 8px 10px;
-  display: flex;
-  flex-direction: column;
+    padding: 8px 10px;
+    display: flex;
+    flex-direction: column;
 }
 
 .prompt .prompt-content form .inner .tunings {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    font-size: 20px;
 }
 
 .prompt .prompt-content form .inner .tunings div,
 .prompt .prompt-content form .inner .tunings div input {
-  margin: 5px;
+    margin: 5px;
 }
 
 .prompt .prompt-content form .inner .tunings div label {
-  padding: 5px;
+    padding: 5px;
 }
 
 .prompt .prompt-content form .inner label,
 .prompt .prompt-content form .inner input {
-  margin: 4px 0px;
+    margin: 4px 0px;
 }
 
 .prompt .prompt-content form #submit {
-  min-height: 40px;
-  background: green;
-  border: none;
-  margin-top: auto;
+    min-height: 40px;
+    background: var(--main);
+    border: none;
+    margin-top: auto;
 }
 
 .prompt .prompt-content form #submit:hover {
-  background: darkgreen;
+    background: var(--active);
 }
 
 .prompt-transition-enter {
-  opacity: 0;
-  transform: scale(0) translate(-100%, -100%);
+    opacity: 0;
+    transform: scale(0) translate(-100%, -100%);
 }
 
 .prompt-transition-enter-active {
-  opacity: 1;
-  transform: scale(1) translate(-50%, -50%);
-  transition: all 500ms ease;
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+    transition: all 500ms ease;
 }
 
 .prompt-transition-exit-active {
-  opacity: 0;
-  transform: scale(0) translate(-100%, -100%);
-  transition: all 500ms ease;
+    opacity: 0;
+    transform: scale(0) translate(-100%, -100%);
+    transition: all 500ms ease;
 }

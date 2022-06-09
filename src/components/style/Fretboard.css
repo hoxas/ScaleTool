@@ -1,50 +1,58 @@
-.fretboard {
-  border: 1px solid #050707;
-}
-
 .fretboard .strings {
-  background: #050707;
-  border-top: 1px solid #050707;
-  border-bottom: 1px solid #050707;
-  padding: 10px;
-  color: #f3f5f9;
+    background: var(--fretboard-background);
+    border-top: 1px solid #050707;
+    border-bottom: 1px solid #050707;
+    padding: 10px 0px;
+    margin: 0px 5px;
 }
 
 .fretboard .strings ul {
-  border: 1px solid #f3f5f9;
+    border: 1px solid var(--text);
 }
 
 .fretboard .strings ul li {
-  border-right: 1px solid #f3f5f9;
+    width: 35px;
+    height: 35px;
+    border-right: 1px solid var(--text);
 }
 
-.fretboard .strings ul li.colored {
-  background: #53565a;
+.fretboard .strings ul li div {
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+    height: 25px;
+    width: 25px;
 }
 
-.fretboard .strings ul li.selected {
-  background: red;
+.fretboard .strings ul li div.colored {
+    background: var(--main);
+}
+
+.fretboard .strings ul li div.selected {
+    background: var(--active);
 }
 
 .fretNumber {
-  padding: 10px;
-  background: #f3f5f9;
-  color: #050707;
+    padding: 10px;
+    background: var(--inner);
+    text-align: center;
 }
 
 ul {
-  display: flex;
-  /* flex-direction: row-reverse; */
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    /* flex-direction: row-reverse; */
+    justify-content: center;
+    align-items: center;
 }
 
 ul li {
-  list-style: none;
-  display: inline-block;
-  flex: 1;
+    list-style: none;
+    display: inline-block;
+    flex: 1;
 }
 
 .fretboard.reverse ul {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }

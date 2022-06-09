@@ -1,183 +1,180 @@
 .nav {
-  position: fixed;
-  width: 60px;
-  height: 100%;
-  background: var(--light-detail);
-  transition: width 500ms;
-  overflow: hidden;
-  z-index: 100;
+    position: fixed;
+    width: 60px;
+    height: 100%;
+    background: var(--main);
+    transition: width 500ms;
+    overflow: hidden;
+    z-index: 100;
 }
 
 .nav:hover,
 .nav.active {
-  width: 300px;
-  overflow-y: auto;
+    width: 300px;
+    overflow-y: auto;
 }
 
 .nav .logo {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  color: var(--text);
+    width: 100%;
+    height: 60px;
+    display: flex;
 }
 
 .nav .logo .icon {
-  padding-right: 5px;
+    padding-right: 5px;
 }
 
 .nav .logo .title {
-  font-weight: 900;
-  line-height: 60px;
+    font-weight: 900;
+    line-height: 60px;
 }
 
 .nav .buttons {
-  height: calc(100% - 60px);
+    height: calc(100% - 60px);
 }
 
 .menu {
-  /* height: calc(100vh - 60px); */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    /* height: calc(100vh - 60px); */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .nav button {
-  border: none;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  background: var(--light-accent);
-  color: var(--text);
-  margin: 0;
-  transition: background 500ms;
+    border: none;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    background: var(--alt-main);
+    margin: 0;
+    transition: background 500ms;
 }
 
 .nav .icon {
-  min-width: 60px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  font-size: 24px;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
 }
 
 .nav .icon.reverse {
-  transform: scaleX(-1);
+    transform: scaleX(-1);
 }
 
 .nav .icon.text {
-  font-weight: 500;
-  line-height: 56px;
+    font-weight: 500;
+    line-height: 56px;
 }
 
 .nav .title {
-  padding: 0 10px;
-  line-height: 55px;
-  text-align: start;
-  white-space: nowrap;
+    padding: 0 10px;
+    line-height: 55px;
+    text-align: start;
+    white-space: nowrap;
 }
 
 .nav .chevron {
-  line-height: 63px;
-  margin-left: auto;
-  padding-right: 8px;
-  white-space: nowrap;
+    line-height: 63px;
+    margin-left: auto;
+    padding-right: 8px;
+    white-space: nowrap;
 }
 
 .nav .trash {
-  margin-left: auto;
-  padding-right: 8px;
-  white-space: nowrap;
-  min-width: 60px;
-  height: 60px;
+    margin-left: auto;
+    padding-right: 8px;
+    white-space: nowrap;
+    min-width: 60px;
+    height: 60px;
 }
 
 .nav .trash button {
-  font-size: 24px;
-  text-align: center;
-  transition: background 500ms;
+    font-size: 24px;
+    text-align: center;
+    transition: background 500ms;
 }
 
 .nav .trash button:hover {
-  background-color: var(--light-accent);
+    background-color: var(--active);
 }
 
-
 .nav button:hover {
-  background: var(--accent);
-  cursor: pointer;
+    background: var(--active);
+    cursor: pointer;
 }
 
 .contact {
-  width: 100%;
-  margin-top: auto;
-  padding-bottom: 20px;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 20px;
 }
 
 .contact a {
-  text-decoration: none;
-  width: 60px;
-  text-align: center;
-  color: var(--text);
-  font-size: 26px;
-  padding: 0px 10px;
-  transition: background 500ms;
+    text-decoration: none;
+    width: 60px;
+    text-align: center;
+    color: var(--text);
+    font-size: 26px;
+    padding: 0px 10px;
+    transition: background 500ms;
 }
 
 .contact a:hover {
-  background-color: var(--light-accent);
+    background-color: var(--main);
 }
 
 .contact .title {
-  padding: 0px;
-  color: var(--text);
-  display: flex;
-  line-height: 68px;
+    padding: 0px;
+    color: var(--text);
+    display: flex;
+    line-height: 68px;
 }
 
 /* animations */
 .menu-primary-enter {
-  position: absolute;
-  /* transform: translateX(-110%); */
-  opacity: 0;
-  width: 300px;
+    position: absolute;
+    /* transform: translateX(-110%); */
+    opacity: 0;
+    width: 300px;
 }
 
 .menu-primary-enter-active {
-  /* transform: translateX(0%); */
-  opacity: 1;
-  transition: all 250ms ease;
+    /* transform: translateX(0%); */
+    opacity: 1;
+    transition: all 250ms ease;
 }
 
 .menu-primary-exit {
-  position: absolute;
-  width: 300px;
+    position: absolute;
+    width: 300px;
 }
 
 .menu-primary-exit-active {
-  /* transform: translateX(-110%); */
-  opacity: 0;
-  transition: all 250ms ease;
+    /* transform: translateX(-110%); */
+    opacity: 0;
+    transition: all 250ms ease;
 }
 
 .menu-secondary-enter {
-  position: absolute;
-  /* transform: translateX(110%); */
-  opacity: 0;
-  width: 300px;
+    position: absolute;
+    /* transform: translateX(110%); */
+    opacity: 0;
+    width: 300px;
 }
 
 .menu-secondary-enter-active {
-  /* transform: translateX(0%); */
-  opacity: 1;
-  transition: all 250ms ease;
+    /* transform: translateX(0%); */
+    opacity: 1;
+    transition: all 250ms ease;
 }
 
 .menu-secondary-exit {
-  position: absolute;
+    position: absolute;
 }
 
 .menu-secondary-exit-active {
-  /* transform: translateX(110%); */
-  opacity: 0;
-  transition: all 250ms ease;
+    /* transform: translateX(110%); */
+    opacity: 0;
+    transition: all 250ms ease;
 }

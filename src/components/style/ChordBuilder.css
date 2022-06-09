@@ -1,21 +1,20 @@
 .chordbuilder {
-    background: var(--dark-accent);
+    background: var(--alt-main);
     display: flex;
     flex-direction: row;
 }
 
 .chordbuilder button {
-    border: 1px black solid;
-    background: gray;
+    background: var(--alt-main);
     padding: 2px;
     /* border-radius: 2px; */
     margin: 1px 0px;
 }
 
 .chordbuilder button.colored {
-    background: var(--accent);
+    background: var(--main);
 }
 
 .chordbuilder button.selected {
-    background: var(--background);
+    background: var(--active);
 }
