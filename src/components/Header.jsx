@@ -354,8 +354,8 @@ export default (props) => {
                                 <span className="icon text">@</span>
                                 <span className="title">
                                     <a href="#"><CgWebsite /></a>
-                                    <a href="https://github.com/hoxas"><FaGithub /></a>
-                                    <a href="https://www.linkedin.com/in/allan-almeida-745a5015a/"><FaLinkedin /></a>
+                                    <a href="https://github.com/hoxas" target="_blank"><FaGithub /></a>
+                                    <a href="https://www.linkedin.com/in/hoxas" target="_blank"><FaLinkedin /></a>
                                 </span>
                             </button>
                         </div>           
