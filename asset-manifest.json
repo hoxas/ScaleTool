@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ScaleTool/static/css/main.c0ee411e.css",
+    "main.js": "/ScaleTool/static/js/main.f5996d97.js",
+    "static/js/787.df865cef.chunk.js": "/ScaleTool/static/js/787.df865cef.chunk.js",
+    "index.html": "/ScaleTool/index.html",
+    "main.c0ee411e.css.map": "/ScaleTool/static/css/main.c0ee411e.css.map",
+    "main.f5996d97.js.map": "/ScaleTool/static/js/main.f5996d97.js.map",
+    "787.df865cef.chunk.js.map": "/ScaleTool/static/js/787.df865cef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0ee411e.css",
+    "static/js/main.f5996d97.js"
+  ]
+}
