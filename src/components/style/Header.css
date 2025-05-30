@@ -6,6 +6,7 @@
     transition: width 500ms;
     overflow: hidden;
     z-index: 100;
+    box-shadow: var(--shadow);
 }
 
 .nav:hover,
@@ -45,9 +46,10 @@
     width: 100%;
     height: 60px;
     display: flex;
-    background: var(--alt-main);
+    background: var(--colored);
+    color: var(--text2);
     margin: 0;
-    transition: background 500ms;
+    transition: background 500ms, color 500ms;
 }
 
 .nav .icon {
@@ -91,17 +93,25 @@
 
 .nav .trash button {
     font-size: 24px;
-    text-align: center;
-    transition: background 500ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 500ms, color 500ms;
 }
 
-.nav .trash button:hover {
-    background-color: var(--active);
+.nav button:hover .trash button:hover {
+    background-color: var(--colored);
 }
 
 .nav button:hover {
-    background: var(--active);
+    background: var(--main);
+    color: var(--text);
     cursor: pointer;
+}
+
+.nav button:hover .trash button {
+    color: var(--text);
+    background-color: var(--main);
 }
 
 .contact {
@@ -110,18 +120,24 @@
     padding-bottom: 20px;
 }
 
+.contact button:hover {
+    background: var(--active);
+    color: var(--text2)
+}
+
 .contact a {
     text-decoration: none;
     width: 60px;
     text-align: center;
-    color: var(--text);
+    color: var(--text2);
     font-size: 26px;
     padding: 0px 10px;
-    transition: background 500ms;
+    transition: background 500ms, color 500ms;
 }
 
 .contact a:hover {
     background-color: var(--main);
+    color: var(--text)
 }
 
 .contact .title {

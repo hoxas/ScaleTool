@@ -7,33 +7,26 @@
 
 .scaleName {
     width: 100%;
-    height: 60px;
-    background: var(--scale-name-background);
     display: flex;
     justify-content: center;
+    padding-bottom: 15px;
 }
 
 .scaleName h1 {
-    font-family: Codystar;
+    font-family: "EB Garamond", serif;
     font-size: 55px;
+    color: var(--active);
 }
 
 .tones {
     width: 100%;
-    position: relative;
-    border-top: 2px solid var(--inner);
-    border-bottom: 2px solid var(--inner);
-    background: var(--deegres-background);
 }
 
 .tones ul {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.tones .degree {
-    border-bottom: 1px solid var(--inner);
+    padding: 0 50px;
 }
 
 .tones ul li {
@@ -43,7 +36,9 @@
     text-align: center;
     flex: 1;
     padding: 5px 0;
-    border-left: 1px solid var(--inner);
-    border-right: 1px solid var(--inner);
     line-height: 20px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    margin: 5px 25px;
 }

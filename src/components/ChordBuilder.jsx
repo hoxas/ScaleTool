@@ -25,9 +25,8 @@ export default props => {
                     <h2>{lib.tones[scalenote]}</h2>
                     {lib.chords.map((chordclass, index) => {
                         return (
-                            <>
-                                {/* <h4>{chordclass[0]}</h4> */}
-                                <hr />
+                            <div key={index} className="chords">
+                                {<h4>{chordclass[0]}</h4>}
                                 {lib.chords[index][1].map((chord, i) => (
                                     <button key={i}
                                     onClick={() => curNote === scalenote && curChord === lib.chords[index][1][i] ? setNoteChord('none', 0) : setNoteChord(scalenote, lib.chords[index][1][i])}
@@ -35,7 +34,7 @@ export default props => {
                                         {lib.tones[scalenote]}{chord[0]}
                                     </button>
                                 ))}
-                            </>
+                            </div>
                         )
                     })}    
                 </div>

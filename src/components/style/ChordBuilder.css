@@ -1,18 +1,40 @@
 .chordbuilder {
-    background: var(--alt-main);
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    padding: 0 1vw;
+}
+
+.chordbuilder h2 {
+    text-align: center;
+}
+
+.chordbuilder .chords {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 0px;
+    padding: 10px;
+    box-shadow: var(--shadow);
 }
 
 .chordbuilder button {
     background: var(--alt-main);
-    padding: 2px;
-    /* border-radius: 2px; */
-    margin: 1px 0px;
+    color: var(--text);
+    transition: background 500ms;
+    padding: 10px;
+    border-radius: 2px;
+    margin: 3px;
+}
+
+.chordbuilder button:hover,
+.chordbuilder button.colored:hover {
+    background: var(--active);
+    cursor: pointer;
 }
 
 .chordbuilder button.colored {
-    background: var(--main);
+    background: var(--colored);
 }
 
 .chordbuilder button.selected {

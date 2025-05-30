@@ -94,6 +94,7 @@ export default (props) => {
                                 >
                                     {lib.tones[value]}
                                 </div>
+                                <hr></hr>
                             </li>
                         ))}
                     </ul>

@@ -16,11 +16,8 @@ export default (props) => {
             </div>
             
             <div className="tones">
-                <ul className="degree">
-                    {builtScale[1].map((value, index) => <li key={index}>{value[1]}</li>)}
-                </ul>
-                <ul className="note">
-                    {builtScale[1].map((value, index) => <li key={index}>{lib.tones[value[0]]}</li>)}
+                <ul className="degreesAndNotes">
+                    {builtScale[1].map((value, index) => <li key={index}><div className="degree">{value[1]}</div><div className="note">{lib.tones[value[0]]}</div></li>)}
                 </ul>
             </div>
         </div>

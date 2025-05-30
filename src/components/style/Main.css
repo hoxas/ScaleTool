@@ -1,23 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Besley&family=Codystar&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Besley&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
-    --text: #000000;
-    --main: #3a0ca3;
-    --alt-main: #210e4b;
-    --inner: #e7c6ff;
-    --active: #f72585;
-    --fretboard-background: #d9d9d9;
-    --deegres-background: #4361ee;
-    --scale-name-background: #7209b7;
-    --text2: #ffffff;
+    --text: #080808;
+    --border: #c7c7c7;
+    --main: #e7e7e7;
+    --alt-main: #c7c7c7;
+    --inner: #eee8e8;
+    --active: #8570e0;
+    --fretboard-background: #eee8e8;
+    --colored: #d3daff;
+    --text2: #252525;
+    --shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 #darktheme {
     --text: #f3f5f9;
+    --border: #757575;
+    --main: #1e1e1e;
+    --alt-main: #474747;
+    --inner: #616161;
+    --fretboard-background: #474747;
+    --active: #bd12e7;
+    --colored: #66008f;
+    --text2: #2b2b2b;
+    --shadow: rgba(105, 105, 105, 0.2) 0px 8px 24px;
 }
 
 body {
-    background: var(--inner);
+    background: var(--main);
     color: var(--text);
     font-family: Besley;
 }
@@ -43,6 +54,7 @@ button {
     background: var(--inner);
     border-radius: 5px;
     overflow: auto;
+    z-index: 2;
 }
 
 .prompt .head {

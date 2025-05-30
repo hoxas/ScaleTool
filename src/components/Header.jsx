@@ -353,7 +353,7 @@ export default (props) => {
                             <button>
                                 <span className="icon text">@</span>
                                 <span className="title">
-                                    <a href="#"><CgWebsite /></a>
+                                    <a href="https://calicocat.org"><CgWebsite /></a>
                                     <a href="https://github.com/hoxas" target="_blank"><FaGithub /></a>
                                     <a href="https://www.linkedin.com/in/hoxas" target="_blank"><FaLinkedin /></a>
                                 </span>

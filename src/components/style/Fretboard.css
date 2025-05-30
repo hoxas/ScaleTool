@@ -1,19 +1,28 @@
+.fretboard {
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+}
+
 .fretboard .strings {
     background: var(--fretboard-background);
-    border-top: 1px solid #050707;
-    border-bottom: 1px solid #050707;
+    border-top: 1px solid var(--text);
+    border-bottom: 1px solid var(--text);
     padding: 10px 0px;
     margin: 0px 5px;
 }
 
 .fretboard .strings ul {
-    border: 1px solid var(--text);
+    border: 1px solid var(--border);
+    font-weight: bold;
 }
 
 .fretboard .strings ul li {
     width: 35px;
     height: 35px;
-    border-right: 1px solid var(--text);
+    border-right: 1px solid var(--border);
 }
 
 .fretboard .strings ul li div {
@@ -22,21 +31,37 @@
     margin-top: 5px;
     margin-bottom: 5px;
     text-align: center;
-    height: 25px;
-    width: 25px;
+    height: 28px;
+    width: 28px;
+    position: relative;
+    z-index: 1;
+}
+
+.fretboard .strings ul li:first-child {
+    border-right: 2px solid var(--text);
+}
+
+.fretboard.reverse .strings ul li:first-child {
+    border-right: none;
+    border-left: 2px solid var(--text);
 }
 
 .fretboard .strings ul li div.colored {
-    background: var(--main);
+    background: var(--colored);
 }
 
 .fretboard .strings ul li div.selected {
     background: var(--active);
 }
 
+.fretboard .strings ul li hr {
+    position: relative;
+    bottom: 50%;
+    color: var(--inner);
+}
+
 .fretNumber {
     padding: 10px;
-    background: var(--inner);
     text-align: center;
 }
 
