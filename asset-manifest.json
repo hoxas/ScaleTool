@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ScaleTool/static/css/main.91eb55e1.css",
-    "main.js": "/ScaleTool/static/js/main.ef8af451.js",
+    "main.js": "/ScaleTool/static/js/main.64628dfa.js",
     "static/js/453.0f29ea94.chunk.js": "/ScaleTool/static/js/453.0f29ea94.chunk.js",
     "index.html": "/ScaleTool/index.html",
     "main.91eb55e1.css.map": "/ScaleTool/static/css/main.91eb55e1.css.map",
-    "main.ef8af451.js.map": "/ScaleTool/static/js/main.ef8af451.js.map",
+    "main.64628dfa.js.map": "/ScaleTool/static/js/main.64628dfa.js.map",
     "453.0f29ea94.chunk.js.map": "/ScaleTool/static/js/453.0f29ea94.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.91eb55e1.css",
-    "static/js/main.ef8af451.js"
+    "static/js/main.64628dfa.js"
   ]
 }
